@@ -45,8 +45,9 @@
 
   .carousel-item {
     display: none;
+    overflow: hidden;
     width: $carousel-item-width;
-    height: $carousel-item-height;
+    //height: $carousel-item-height;
     position: absolute;
     top: 0;
     left: 0;
@@ -88,3 +89,6 @@
     pointer-events: none;
   }
 }
+
+.carousel.servicios { height: 200px; }
+.carousel.paquetes { height: 360px; }

@@ -10,9 +10,20 @@ var $=jQuery.noConflict();
  
 		$(document).ready(function() {
 
+			document.getElementById("date").innerHTML = new Date().getFullYear();
+			navScroll();
 			footerBottom();
 			$(".button-collapse").sideNav();
- 
+			$('.carousel').carousel({
+				shift: -5,
+				dist: -30
+			});
+			autoplay();   
+			function autoplay() {
+				$('.servicios.carousel').carousel('next');
+				setTimeout(autoplay, 8000);
+			} 
+
 		});
  
 		$(window).on('resize', function(){
@@ -23,17 +34,24 @@ var $=jQuery.noConflict();
  
 		$(document).scroll(function() {
 
+			navScroll();
+
 		});
  
-		if( parseInt( isHome ) ){
+		// if( parseInt( isHome ) ){
  
-		} //End isHome
- 
-		// $(".btn-scroll-unete").click(function() {
-		//     $('html, body').animate({
-		//         scrollTop: $("#section-unete").offset().top - 100
-		//     }, 700);
-		// });
+		// } 
+
+		$("header nav a").click(function() {
+			//buttonMenuScroll();
+			var idOption = $(this).attr('id'); //Opción del menú
+			// console.log(idOption);
+			var idSection = "#section-" + idOption; //Sección a la que se dirigirá
+			// console.log(idSection); 
+			$('html, body').animate({		
+				scrollTop: $(idSection).offset().top - 100
+			}, 2000);
+		});
  
  
 	});
@@ -52,3 +70,26 @@ function getHeaderHeight(){
 function getFooterHeight(){
 	return $('footer').outerHeight();
 }// getFooterHeight
+
+/**
+ * Estilo navegador fijo
+ */
+function navScroll(){
+	$('footer').outerHeight();if ($(window).scrollTop() > 40 ) {
+		$('header').addClass('nav-scroll');
+	} else {
+		$('header').removeClass('nav-scroll');
+	};
+}
+
+/**
+ * Scroll a ID
+ */
+function buttonMenuScroll(){
+	var idOption = $(this).attr('id');
+	console.log(idOption);
+	console.log("section-" + idOption);
+	// $('html, body').animate({		
+	// 	scrollTop: $("#section-" + idOption).offset().top - 100
+	// }, 2000);
+}

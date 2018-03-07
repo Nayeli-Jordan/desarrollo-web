@@ -11,10 +11,11 @@
 
 .card {
   position: relative;
-  margin: $element-top-margin 0 $element-bottom-margin 0;
+  margin: 0;
   background-color: $card-bg-color;
   transition: box-shadow .25s;
   border-radius: 2px;
+  overflow: hidden;
   @extend .z-depth-1;
 
 
@@ -192,5 +193,19 @@
       cursor: pointer;
       display: block;
     }
+  }
+}
+
+.paquetes {
+  hr.line-difumined-small + p, ul {
+    overflow: hidden;
+  }
+  hr.line-difumined-small + p {
+    max-height: 85px;    
+    min-height: 85px;    
+  }
+  ul { 
+    max-height: 113px;
+    min-height: 113px;
   }
 }

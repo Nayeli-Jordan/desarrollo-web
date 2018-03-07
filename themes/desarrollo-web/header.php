@@ -36,7 +36,8 @@
 		<meta http-equiv="cleartype" content="on">
 
 		<!-- Google font(s) -->
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500" rel="stylesheet">
 
 		<!--Import Google Icon Font-->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -60,10 +61,27 @@
 </head>
 <body>
 	<header class="js-header">
-		<ul id="slide-out" class="side-nav">
-			<li><a href="#!">First Sidebar Link</a></li>
-			<li><a href="#!">Second Sidebar Link</a></li>
-		</ul>
-		<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+		<nav>
+			<div class="nav-wrapper [ container ]">
+			<a href="#!" class="brand-logo">Logo</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul class="[ nav-header ] right hide-on-small-only">
+					<!-- <li><a id="nosotros" href="<?php echo SITEURL ?>#nosotros">Nosotros</a></li> -->
+					<li><a id="servicios" href="<?php echo SITEURL ?>#servicios">Servicios</a></li>
+					<li><a id="paquetes" href="<?php echo SITEURL ?>#paquetes">Paquetes</a></li>
+					<li><a id="beneficios" href="<?php echo SITEURL ?>#beneficios">Beneficios</a></li>
+					<li><a id="contacto" href="<?php echo SITEURL ?>#contacto">Contacto</a></li>
+					<li><a id="faqs" href="<?php echo SITEURL ?>#faqs">Faq´s</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					<!-- <li><a id="nosotros" href="<?php echo SITEURL ?>#nosotros">Nosotros</a></li> -->
+					<li><a id="servicios" href="<?php echo SITEURL ?>#servicios">Servicios</a></li>
+					<li><a id="paquetes" href="<?php echo SITEURL ?>#paquetes">Paquetes</a></li>
+					<li><a id="beneficios" href="<?php echo SITEURL ?>#beneficios">Beneficios</a></li>
+					<li><a id="contacto" href="<?php echo SITEURL ?>#contacto">Contacto</a></li>
+					<li><a id="faqs" href="<?php echo SITEURL ?>#faqs">Faq´s</a></li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 	<div class="main-body">

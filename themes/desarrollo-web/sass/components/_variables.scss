@@ -35,11 +35,21 @@
 // 1. Colors
 // ==========================================================================
 
-$primary-color: color("materialize-red", "lighten-2") !default;
-$primary-color-light: lighten($primary-color, 15%) !default;
-$primary-color-dark: darken($primary-color, 15%) !default;
+//Blue
+$primary-color-light: #009AAC;
+$primary-color: #007785;
+$primary-color-dark: #10616A;
 
-$secondary-color: color("teal", "lighten-1") !default;
+//green
+$secondary-color-light: #639511;
+$secondary-color: #4A7700;
+$secondary-color-dark: #3D5F04;
+
+//green
+$dark-color-light: #3A3A3A;
+$dark-color: #2A2A2A;
+$dark-color-dark: #212121;
+
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
@@ -93,7 +103,7 @@ $button-floating-radius: 50% !default;
 // 4. Cards
 // ==========================================================================
 
-$card-padding: 24px !default;
+$card-padding: 15px !default;
 $card-bg-color: #fff !default;
 $card-link-color: color("orange", "accent-2") !default;
 $card-link-color-light: lighten($card-link-color, 20%) !default;
@@ -238,11 +248,11 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 // 14. Navigation Bar
 // ==========================================================================
 
-$navbar-height: 64px !default;
+$navbar-height: 50px !default;
 $navbar-line-height: $navbar-height !default;
-$navbar-height-mobile: 56px !default;
+$navbar-height-mobile: 50px !default;
 $navbar-line-height-mobile: $navbar-height-mobile !default;
-$navbar-font-size: 1rem !default;
+$navbar-font-size: 15px !default;
 $navbar-font-color: #fff !default;
 $navbar-brand-font-size: 2.1rem !default;
 
@@ -300,12 +310,12 @@ $toast-action-color: #eeff41;
 
 $off-black: rgba(0, 0, 0, 0.87) !default;
 // Header Styles
-$h1-fontsize: 4.2rem !default;
-$h2-fontsize: 3.56rem !default;
-$h3-fontsize: 2.92rem !default;
-$h4-fontsize: 2.28rem !default;
-$h5-fontsize: 1.64rem !default;
-$h6-fontsize: 1rem !default;
+$h1-fontsize: 24px;
+$h2-fontsize: 22px;
+$h3-fontsize: 18px;
+$h4-fontsize: 16px;
+$h5-fontsize: 15px;
+$h6-fontsize: 14px;
 
 
 // 22. Footer

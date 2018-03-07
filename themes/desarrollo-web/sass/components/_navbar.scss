@@ -13,14 +13,19 @@ nav {
     }
   }
 
-  color: $navbar-font-color;
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;
+  -o-transition: all .1s ease;
+  transition: all .1s ease;
+  color: $primary-color;
   @extend .z-depth-1;
-  background-color: $primary-color;
+  background-color: #fff;
   width: 100%;
   height: $navbar-height-mobile;
   line-height: $navbar-line-height-mobile;
+  border-bottom: 2px solid $primary-color-light;
 
-  a { color: $navbar-font-color; }
+  a { color: $primary-color; }
 
   i,
   [class^="mdi-"], [class*="mdi-"],
@@ -36,7 +41,7 @@ nav {
     height: 100%;
   }
 
-  @media #{$large-and-up} {
+  @media #{$medium-and-up} {
     a.button-collapse { display: none; }
   }
 
@@ -59,7 +64,7 @@ nav {
   // Logo
   .brand-logo {
     position: absolute;
-    color: $navbar-font-color;
+    color: $primary-color;
     display: inline-block;
     font-size: $navbar-brand-font-size;
     padding: 0;
@@ -69,7 +74,7 @@ nav {
       transform: translateX(-50%);
     }
 
-    @media #{$medium-and-down} {
+    @media #{$small-and-down} {
       left: 50%;
       transform: translateX(-50%);
 
@@ -121,11 +126,13 @@ nav {
       }
     }
     a {
-      transition: background-color .3s;
+      transition: background-color .9s;
       font-size: $navbar-font-size;
-      color: $navbar-font-color;
+      font-family: 'Alegreya Sans', sans-serif;
+      letter-spacing: 1px;
+      color: $primary-color;
       display: block;
-      padding: 0 15px;
+      padding: 0 12px;
       cursor: pointer;
 
       &.btn, &.btn-large, &.btn-flat, &.btn-floating {
@@ -140,7 +147,8 @@ nav {
       }
 
       &:hover {
-        background-color: rgba(0,0,0,.1);
+        background-color: $primary-color-light;
+        color: #fff;
       }
     }
 

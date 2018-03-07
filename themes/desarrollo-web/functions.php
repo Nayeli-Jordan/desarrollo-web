@@ -22,6 +22,7 @@ add_action( 'wp_enqueue_scripts', function(){
  
 	wp_localize_script( 'dw_functions', 'siteUrl', SITEURL );
 	wp_localize_script( 'dw_functions', 'theme_path', THEMEPATH );
+	
 	// wp_localize_script( 'dw_functions', 'isHome', (string)is_front_page() );
 	// wp_localize_script( 'dw_functions', 'isSingular', (string)is_singular() );
 	

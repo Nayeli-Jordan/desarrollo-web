@@ -3,42 +3,56 @@ a {
   text-decoration: none;
 }
 
+p { margin: 0px; }
+p + p { margin-top: 5px; }
+
+.frase p {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 26px;
+  color: #212121;
+  text-shadow: 2px 1px 15px #f5f5f5;
+  @media #{$small-and-down} {
+    font-size: 20px;
+  }
+}
+
 html{
   line-height: 1.5;
 
   @media only screen and (min-width: 0) {
-    font-size: 14px;
+    font-size: 11px;
   }
 
-  @media only screen and (min-width: $medium-screen) {
-    font-size: 14.5px;
-  }
+  // @media only screen and (min-width: $medium-screen) {
+  //   font-size: 14.5px;
+  // }
 
-  @media only screen and (min-width: $large-screen) {
-    font-size: 15px;
-  }
+  // @media only screen and (min-width: $large-screen) {
+  //   font-size: 15px;
+  // }
 
-  font-family: "Roboto", sans-serif;
-  font-weight: normal;
-  color: $off-black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: $dark-color;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	line-height: 1.1;
+  font-family: 'Alegreya Sans', sans-serif;
 }
 
 // Header Styles
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
-h1 { font-size: $h1-fontsize; line-height: 110%; margin: ($h1-fontsize / 2) 0 ($h1-fontsize / 2.5) 0;}
-h2 { font-size: $h2-fontsize; line-height: 110%; margin: ($h2-fontsize / 2) 0 ($h2-fontsize / 2.5) 0;}
-h3 { font-size: $h3-fontsize; line-height: 110%; margin: ($h3-fontsize / 2) 0 ($h3-fontsize / 2.5) 0;}
-h4 { font-size: $h4-fontsize; line-height: 110%; margin: ($h4-fontsize / 2) 0 ($h4-fontsize / 2.5) 0;}
-h5 { font-size: $h5-fontsize; line-height: 110%; margin: ($h5-fontsize / 2) 0 ($h5-fontsize / 2.5) 0;}
-h6 { font-size: $h6-fontsize; line-height: 110%; margin: ($h6-fontsize / 2) 0 ($h6-fontsize / 2.5) 0;}
+h1 { font-size: $h1-fontsize; line-height: 110%; margin: 0;}
+h2 { font-size: $h2-fontsize; line-height: 110%; margin: 0 0 15px;}
+h3 { font-size: $h3-fontsize; line-height: 110%; margin: 0;}
+h4 { font-size: $h4-fontsize; line-height: 110%; margin: 0;}
+h5 { font-size: $h5-fontsize; line-height: 110%; margin: 0;}
+h6 { font-size: $h6-fontsize; line-height: 110%; margin: 0;}
 
 // Text Styles
 em { font-style: italic; }
-strong { font-weight: 500; }
+strong, .strong { font-weight: 500; }
 small { font-size: 75%; }
 .light { font-weight: 300; }
 .thin { font-weight: 200; }
@@ -59,3 +73,16 @@ small { font-size: 75%; }
     font-size: 1.2rem;
   }
 }
+
+//Font family
+
+.font-monserrat { font-family: 'Montserrat', sans-serif; }
+.font-alegreya { font-family: 'Alegreya Sans', sans-serif; }
+
+//Font weight
+
+.font-weight-200 { font-weight: 200; }
+.font-weight-300 { font-weight: 300; }
+.font-weight-400 { font-weight: 400; }
+.font-weight-500 { font-weight: 500; }
+.font-weight-600 { font-weight: 600; }
