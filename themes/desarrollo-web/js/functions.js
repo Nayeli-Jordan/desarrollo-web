@@ -7,9 +7,9 @@ var $=jQuery.noConflict();
 		/*------------------------------------*\
 			#GLOBAL
 		\*------------------------------------*/
- 
-		$(document).ready(function() {
 
+		$(document).ready(function() {
+			new WOW().init(); //Animaciones
 			document.getElementById("date").innerHTML = new Date().getFullYear();
 			navScroll();
 			footerBottom();
@@ -23,6 +23,7 @@ var $=jQuery.noConflict();
 				$('.servicios.carousel').carousel('next');
 				setTimeout(autoplay, 8000);
 			} 
+
 
 		});
  

@@ -5,7 +5,7 @@
 			</div>
 		</footer>
 		<div id="intro" class="return-top">
-			 <i class="material-icons">expand_less</i>
+			<i class="material-icons">expand_less</i>
 		</div>
 	</div> <!-- end main body -->
 	<?php wp_footer(); ?>
