@@ -36,8 +36,8 @@
 		<meta http-equiv="cleartype" content="on">
 
 		<!-- Google font(s) -->
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500" rel="stylesheet">
 
 		<!--Import Google Icon Font-->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -66,20 +66,42 @@
 			<a href="#!" class="brand-logo">Logo</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="[ nav-header ] right hide-on-small-only">
-					<!-- <li><a id="nosotros" href="<?php echo SITEURL ?>#nosotros">Nosotros</a></li> -->
-					<li><a id="servicios" href="<?php echo SITEURL ?>#servicios">Servicios</a></li>
-					<li><a id="paquetes" href="<?php echo SITEURL ?>#paquetes">Paquetes</a></li>
-					<li><a id="beneficios" href="<?php echo SITEURL ?>#beneficios">Beneficios</a></li>
-					<li><a id="contacto" href="<?php echo SITEURL ?>#contacto">Contacto</a></li>
-					<li><a id="faqs" href="<?php echo SITEURL ?>#faqs">Faq´s</a></li>
+					<!-- <li>
+						<p id="nosotros" href="<?php echo SITEURL ?>#nosotros" itemprop="actionOption">Nosotros</p>
+					</li> -->
+					<li>
+						<p id="servicios" href="<?php echo SITEURL ?>#servicios" itemprop="actionOption">Servicios</p>
+					</li>
+					<li>
+						<p id="paquetes" href="<?php echo SITEURL ?>#paquetes" itemprop="actionOption">Paquetes</p>
+					</li>
+					<li>
+						<p id="beneficios" href="<?php echo SITEURL ?>#beneficios" itemprop="actionOption">Beneficios</p>
+					</li>
+					<li>
+						<p id="contacto" href="<?php echo SITEURL ?>#contacto" itemprop="actionOption">Contacto</p>
+					</li>
+					<li>
+						<p id="faqs" href="<?php echo SITEURL ?>#faqs" itemprop="actionOption">Faq´s</p>
+					</li>
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
-					<!-- <li><a id="nosotros" href="<?php echo SITEURL ?>#nosotros">Nosotros</a></li> -->
-					<li><a id="servicios" href="<?php echo SITEURL ?>#servicios">Servicios</a></li>
-					<li><a id="paquetes" href="<?php echo SITEURL ?>#paquetes">Paquetes</a></li>
-					<li><a id="beneficios" href="<?php echo SITEURL ?>#beneficios">Beneficios</a></li>
-					<li><a id="contacto" href="<?php echo SITEURL ?>#contacto">Contacto</a></li>
-					<li><a id="faqs" href="<?php echo SITEURL ?>#faqs">Faq´s</a></li>
+					<!-- <li><div id="nosotros" href="<?php echo SITEURL ?>#nosotros" itemprop="actionOption">Nosotros</p></li> -->
+					<li>
+						<p id="servicios" href="<?php echo SITEURL ?>#servicios" itemprop="actionOption">Servicios</p>
+					</li>
+					<li>
+						<p id="paquetes" href="<?php echo SITEURL ?>#paquetes" itemprop="actionOption">Paquetes</p>
+					</li>
+					<li>
+						<p id="beneficios" href="<?php echo SITEURL ?>#beneficios" itemprop="actionOption">Beneficios</p>
+					</li>
+					<li>
+						<p id="contacto" href="<?php echo SITEURL ?>#contacto" itemprop="actionOption">Contacto</p>
+					</li>
+					<li>
+						<p id="faqs" href="<?php echo SITEURL ?>#faqs" itemprop="actionOption">Faq´s</p>
+					</li>
 				</ul>
 			</div>
 		</nav>

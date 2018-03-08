@@ -5,3 +5,28 @@ footer {
     background-color: $primary-color-light;
     overflow: hidden;
 }
+.return-top {
+	width: 40px;
+	height: 40px;
+	text-align: center;	
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	box-shadow: 3px 6px 8px 0 rgba(0, 0, 0, 0.3);
+	background-color: $primary-color;
+	color: #fff;
+	border-radius: 50%;
+	opacity: 0.6;
+	cursor: pointer;
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+	&:hover {
+		opacity: 0.9;
+	}
+	i {
+		line-height: 36px;
+		font-size: 40px;
+	}
+}

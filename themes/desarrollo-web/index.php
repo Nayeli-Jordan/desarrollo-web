@@ -1,5 +1,5 @@
 <?php get_header() ?>
-	<section class="[ relative ][ bg-image ][ margin-top-50 ]" style="background-image: url(<?php echo THEMEPATH ?>images/intro.png);">
+	<section id="section-intro" class="[ relative ][ bg-image ][ margin-top-50 ]" style="background-image: url(<?php echo THEMEPATH ?>images/intro.png);">
 		<div class="[ bg-light-opacity ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 		<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 			<p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet
@@ -8,7 +8,7 @@
 		</div>
 	</section>	
 	<section id="section-servicios" class="container [ padding-top-bottom-section ]">
-		<h2 class="[ text-center ]">Servicios</h2>
+		<h2 class="[ text-center ][ color-primary ]">Servicios</h2>
 		<div class="carousel [ servicios ]">
 			<div class="carousel-item active">
 				<div class="[ bg-image ][ width-100p height-200 ]" style="background-image: url(<?php echo THEMEPATH ?>images/servicio-diseno.png);">
@@ -66,7 +66,7 @@
 		</div>
 	</section>	
 	<section id="section-paquetes" class=" container [ padding-top-bottom-section ]">
-		<h2 class="[ text-center ]">Paquetes</h2>
+		<h2 class="[ text-center ][ color-primary ]">Paquetes</h2>
 		<div class="carousel [ paquetes ]">
 			<div class="carousel-item active">
 				<div class="[ card ]">
@@ -184,7 +184,7 @@
 		</div>
 	</section>		
 	<section id="section-beneficios" class="container [ padding-top-bottom-section ]">
-		<h2 class="[ text-center ]">Beneficios</h2>
+		<h2 class="[ text-center ][ color-primary ]">Beneficios</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 		<div class="row">
 			<div class="col s12 m4">

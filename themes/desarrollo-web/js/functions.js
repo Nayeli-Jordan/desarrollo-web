@@ -42,7 +42,7 @@ var $=jQuery.noConflict();
  
 		// } 
 
-		$("header nav a").click(function() {
+		$("header nav ul li p, #intro").click(function() {
 			//buttonMenuScroll();
 			var idOption = $(this).attr('id'); //Opción del menú
 			// console.log(idOption);
@@ -50,7 +50,13 @@ var $=jQuery.noConflict();
 			// console.log(idSection); 
 			$('html, body').animate({		
 				scrollTop: $(idSection).offset().top - 100
-			}, 2000);
+			}, 1500);
+		});
+
+		$("return-top").click(function() {
+			$('html, body').animate({		
+				scrollTop: $("#section-intro").offset().top
+			}, 1500);
 		});
  
  

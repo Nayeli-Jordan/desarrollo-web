@@ -10,7 +10,7 @@ header {
 		border-bottom: none;
 		.brand-logo { color: #fff; } //sólo si es texto sino quitar
 		ul {
-			a {
+			a, p {
 				font-size: 14px;
 				color: #fff;
 				&:hover {

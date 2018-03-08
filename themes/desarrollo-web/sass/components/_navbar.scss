@@ -125,7 +125,7 @@ nav {
         background-color: rgba(0,0,0,.1);
       }
     }
-    a {
+    a, p {
       transition: background-color .9s;
       font-size: $navbar-font-size;
       font-family: 'Alegreya Sans', sans-serif;
