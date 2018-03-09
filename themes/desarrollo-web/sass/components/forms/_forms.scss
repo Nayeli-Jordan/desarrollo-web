@@ -9,8 +9,10 @@ button:focus {
 }
 
 label {
-  font-size: $label-font-size;
-  color: $input-border-color;
+	font-size: $label-font-size;
+  	color: #fff;
+	font-weight: 500;
+	margin-bottom: 10px;
 }
 
 @import 'input-fields';
@@ -22,8 +24,8 @@ label {
 @import 'range';
 
 .wpcf7 {
-	input:not([type="submit"]), textarea {
-		margin-bottom: 0px!important;
+	input:not([type="submit"]), textarea { 
+		margin-top: 10px!important;
 		background-color: rgba(33, 33, 33, 0.60)!important;
 		border-bottom: 1px solid $primary-color!important;	
 		outline: none!important;
@@ -33,11 +35,13 @@ label {
 	}
 	input:not([type="submit"]) {
 		height: 25px!important;
+		margin-bottom: 10px!important;
 	}
 	input[type="submit"] {
 		background-color: transparent;
 	}
 	textarea {
+		margin-bottom: 0px!important;
 		border-top: none;
 		border-left: none;
 		border-right: none;
@@ -45,6 +49,39 @@ label {
 	select {
 		//display: block;
 	}
+	.wpcf7-submit {
+		margin-top: 20px;
+		height: 30px;
+		font-size: 14px;
+		outline: none;
+		&:hover {
+			background-color: $primary-color-light;
+		}
+	}
+	.ajax-loader { display: none!important; }
+
+	//validación
+	.wpcf7-response-output {
+    	display: block;
+   		border: 0px;
+    	margin: 0px;
+    	color: $primary-color-light;
+    	&.wpcf7-validation-errors {
+    		color: #ff1100;
+    	}
+	}
+	.wpcf7-not-valid-tip {
+		color: $primary-color-light;
+		font-weight: 500;
+		font-size: 12px;
+	}
+}
+
+.wpcf7-form-control-wrap.servicios,
+.wpcf7-form-control-wrap.tiempo,
+.wpcf7-form-control-wrap.presupuesto {
+	margin-top: 10px;
+	display: block;
 }
 
 

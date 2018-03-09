@@ -55,6 +55,7 @@
     & > img {
       width: 100%;
     }
+
   }
 
   .indicators {
@@ -92,3 +93,17 @@
 
 .carousel.servicios { height: 200px; }
 .carousel.paquetes { height: 360px; }
+
+.carousel {
+  .carousel-item {
+    .item-locked {
+      position: absolute;
+      top: 0px; bottom: 0px;
+      left: 0px; right: 0px;
+      z-index: 2; 
+    }
+    &.active {
+      .item-locked { display: none; }
+    }
+  }
+}

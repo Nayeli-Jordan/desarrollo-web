@@ -18,12 +18,19 @@
 		if ( $seccion_query->have_posts() ) :
 		$i = 1;
 		while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
+
+		$custom_fields = get_post_custom();
+		$post_id = get_the_ID();
+		$url = get_post_meta( $post_id, 'seccion_url', true );
+		$btn = get_post_meta( $post_id, 'seccion_btn', true );
 	?>
 		<section id="section-intro" class="[ relative ][ bg-image ][ margin-top-50 ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
 			<div class="[ bg-light-opacity ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 			<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 				<?php the_content(); ?>
-				<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ]" href="">button</a>
+				<?php if( $url != "" ) { ?>
+					<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ]" href="<?php echo $url; ?>"><?php echo $btn; ?></a>
+				<?php } ?>				
 			</div>
 		</section>
 	<?php 
@@ -122,12 +129,19 @@
 		if ( $seccion_query->have_posts() ) :
 		$i = 1;
 		while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
+
+		$custom_fields = get_post_custom();
+		$post_id = get_the_ID();
+		$url = get_post_meta( $post_id, 'seccion_url', true );
+		$btn = get_post_meta( $post_id, 'seccion_btn', true );			
 	?>
 		<section class="[ relative ][ bg-image ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
 			<div class="[ bg-light-opacity ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 			<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 				<?php the_content(); ?>
-				<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ]">button</a>
+				<?php if( $url != "" ) { ?>
+					<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ]" href="<?php echo $url; ?>"><?php echo $btn; ?></a>
+				<?php } ?>	
 			</div>
 		</section>	
 	<?php 
@@ -187,9 +201,22 @@
 				$i = 1;
 				if ( $paquete_query->have_posts() ) :				
 				while ( $paquete_query->have_posts() ) : $paquete_query->the_post();
+
+				$custom_fields = get_post_custom();
+				$post_id = get_the_ID();
+				$precio = get_post_meta( $post_id, 'paquete_precio', true );
+				$contenido1 = get_post_meta( $post_id, 'paquete_contenido1', true );
+				$contenido2 = get_post_meta( $post_id, 'paquete_contenido2', true );
+				$contenido3 = get_post_meta( $post_id, 'paquete_contenido3', true );
+				$contenido4 = get_post_meta( $post_id, 'paquete_contenido4', true );
+				$contenido5 = get_post_meta( $post_id, 'paquete_contenido5', true );
+				$contenido6 = get_post_meta( $post_id, 'paquete_contenido6', true );
+				$contenido7 = get_post_meta( $post_id, 'paquete_contenido7', true );
+				$contenido8 = get_post_meta( $post_id, 'paquete_contenido8', true );
 			?>
 				<div class="carousel-item <?php if ($i == 1){ ?> active <?php } ?>">
 					<div class="[ card ]">
+						<div class="[ item-locked ]"></div>
 						<div class="triangulo-top-right absolute right-0"></div>			
 						<div class="triangulo-top-left absolute left-0"></div>
 						<div class="[ card-content ][ padding-top-bottom-xlarge ]">
@@ -199,14 +226,41 @@
 								<?php the_content(); ?>
 							</div>
 							<hr class="line-difumined-large">
-							<p class="[ text-center ][ color-primary-dark ][ strong ]">Desde $000.00 MXN</p>
+							<p class="[ text-center ][ color-primary-dark ][ strong ]">	
+								<?php if( $precio != "" ) { ?>
+									Desde <?php echo $precio; ?> MXN
+								<?php } else { ?>	
+									<span class="link-contacto" id="contacto">Cóntactanos</span>
+								<?php } ?>								
+							</p>	
 							<hr class="line-difumined-large">
 							<ul class="[ points-list ]">
-								<li>Lorem ipsum dolor sit amet </li>
-								<li>Lorem ipsum ipsum dolor sit amet lorem ipsum sit amet</li>
-								<li>Lorem ipsum dolor sit amet lorem ipsum sit amet</li>
+								<?php if( $contenido1 != "" ) { ?>
+									<li><?php echo $contenido1; ?></li>
+								<?php } ?>
+								<?php if( $contenido2 != "" ) { ?>
+									<li><?php echo $contenido2; ?></li>
+								<?php } ?>
+								<?php if( $contenido3 != "" ) { ?>
+									<li><?php echo $contenido3; ?></li>
+								<?php } ?>
+								<?php if( $contenido4 != "" ) { ?>
+									<li><?php echo $contenido4; ?></li>
+								<?php } ?>
+								<?php if( $contenido5 != "" ) { ?>
+									<li><?php echo $contenido5; ?></li>
+								<?php } ?>
+								<?php if( $contenido6 != "" ) { ?>
+									<li><?php echo $contenido6; ?></li>
+								<?php } ?>
+								<?php if( $contenido7 != "" ) { ?>
+									<li><?php echo $contenido7; ?></li>
+								<?php } ?>
+								<?php if( $contenido8 != "" ) { ?>
+									<li><?php echo $contenido8; ?></li>
+								<?php } ?>
 							</ul>
-							<a class="waves-effect waves-light btn btn-small [ block ][ center ]">button</a>
+							<a class="waves-effect waves-light btn btn-small [ block ][ center ]" href="<?php the_permalink(); ?>">Ver más</a>
 						</div>
 						<div class="triangulo-bottom-right absolute right-0 bottom-0"></div>
 					</div>
@@ -241,12 +295,19 @@
 		if ( $seccion_query->have_posts() ) :
 		$i = 1;
 		while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
+
+		$custom_fields = get_post_custom();
+		$post_id = get_the_ID();
+		$url = get_post_meta( $post_id, 'seccion_url', true );
+		$btn = get_post_meta( $post_id, 'seccion_btn', true );			
 	?>
 		<section class="[ relative ][ bg-image ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
 			<div class="[ bg-light-opacity ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 			<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 				<?php the_content(); ?>
-				<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ]">button</a>
+				<?php if( $url != "" ) { ?>
+					<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ]" href="<?php echo $url; ?>"><?php echo $btn; ?></a>
+				<?php } ?>	
 			</div>
 		</section>	
 	<?php 
@@ -306,9 +367,17 @@
 				$i = 1;
 				if ( $beneficio_query->have_posts() ) :				
 				while ( $beneficio_query->have_posts() ) : $beneficio_query->the_post();
+
+				$custom_fields = get_post_custom();
+				$post_id = get_the_ID();
+				$icon = get_post_meta( $post_id, 'beneficio_icon', true );
 			?>
-				<div class="col s12 sm6 m4 l3 [ text-center ][ margin-bottom ][ wow jello ]">
-					<i class="material-icons">expand_less</i>
+				<div class="col s12 sm6 m4 l3 [ text-center ][ margin-bottom ][ wow jello ]">					
+					<?php if( $icon != "" ) { ?>
+						<i class="material-icons"><?php echo $icon; ?></i>
+					<?php } else { ?>	
+						<i class="material-icons">grade</i>
+					<?php } ?>	
 					<h4 class="margin-bottom-xsmall"><?php the_title(); ?></h4>
 					<hr class="line-difumined-large">
 					<small><?php the_content(); ?></small>
@@ -323,31 +392,6 @@
 				<p>Falta agregar beneficios</p>	
 			<?php endif; ?>
 
-<i class="material-icons">brush</i>
-<i class="material-icons">color_lens</i>
-<i class="material-icons">computer</i>
-<i class="material-icons">developer_mode</i>
-<i class="material-icons">devices</i>
-<i class="material-icons">domain</i>
-<i class="material-icons">equalizer</i>
-<i class="material-icons">favorite</i>
-<i class="material-icons">favorite_border</i>
-<i class="material-icons">gps_not_fixed</i>
-<i class="material-icons">grade</i>
-<i class="material-icons">group</i>
-<i class="material-icons">highlight</i>
-<i class="material-icons">home</i>
-<i class="material-icons">important_devices</i>
-<i class="material-icons">insert_emoticon</i>
-<i class="material-icons">laptop_mac</i>
-<i class="material-icons">local_atm</i>
-<i class="material-icons">local_grocery_store</i>
-<i class="material-icons">location_city</i>
-<i class="material-icons">location_on</i>
-<i class="material-icons">location_searching</i>
-<i class="material-icons">mood</i>
-<i class="material-icons">my_location</i>
-<i class="material-icons">public</i>
 		</div>
 	</section>
 	<section id="section-contacto" class="[ relative ][ bg-image ]" style="background-image: url(<?php echo THEMEPATH ?>images/contacto.png);">
@@ -356,18 +400,18 @@
 			<h2 class="[ text-center ]">Contacto</h2>
 			<div class="[ row ]">
 				<div class="[ col s12 m9 ]">
-					<p>Gracias por ponerte en contacto!</p>
-					<p>Hay campos opcionales, sin embargo, miestras más completa este tu información nos será más sensillo ayudarte a cotizar tu proyecto.</p>
+					<p class="large">Gracias por ponerte en contacto!</p>
+					<p class="[ margin-bottom ]">No te preocupes si aún no estás seguro de lo que tu proyecto requiere, podemos ayudarte a encontrar la mejor opción. Completa los campos para que nos sea más fácil ayudarte.</p>
 					<div class="[ row ]">
 						<?php echo do_shortcode('[contact-form-7 id="4" title="Contacto"]'); ?>
 					</div>					
 				</div>
-				<div class="[ col s12 m3 ]">
+				<div class="[ col s12 m3 ][ text-center-sm-and-down ][ margin-top-large-sm-and-down ]">
 					<p>Ciudad de México</p>
 					<p>Horario de asistencia<br/>10:00 a 18:00 hrs.</p>
-					<p>tel. 55 55 55 55</p>
-					<p>cel. 55 55 55 55 55</p>
-					<p>correo@email.com</p>
+					<p><a class="[ color-light ]" href="tel:+52559391351">tel. 55 55 55 55</a></p>
+					<p><a class="[ color-light ]" href="tel:+52559391351">cel. 55 59 39 13 51</a></p>
+					<p><a class="[ color-light ]" href="mailto:nayeli.jordan16@gmail.com">nayeli.jordan16@gmail.com</a></p>
 				</div>
 			</div>			
 		</div>

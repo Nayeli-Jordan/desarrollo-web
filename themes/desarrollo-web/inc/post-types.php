@@ -5,6 +5,38 @@
 
 add_action('init', function(){
 
+	// Seccion
+	$labels = array(
+		'name'          => 'Secciones',
+		'singular_name' => 'Sección',
+		'add_new'       => 'Nueva sección',
+		'add_new_item'  => 'Nueva sección',
+		'edit_item'     => 'Editar sección',
+		'new_item'      => 'Nueva sección',
+		'all_items'     => 'Todo',
+		'view_item'     => 'Ver sección',
+		'search_items'  => 'Buscar sección',
+		'not_found'     => 'No hay secciones.',
+		'menu_name'     => 'Secciones'
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'seccion' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 3,
+		'supports'           => array( 'title', 'editor', 'thumbnail' ),
+		'taxonomies'         => array( 'posicion' )
+	);
+	register_post_type( 'seccion', $args );
+
 	// Servicios
 	$labels = array(
 		'name'          => 'Servicios',
@@ -31,12 +63,42 @@ add_action('init', function(){
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
-		'menu_position'      => 6,
+		'menu_position'      => 4,
 		'supports'           => array( 'title', 'editor', 'thumbnail' )
 	);
 	register_post_type( 'servicio', $args );
 
-	
+	// Paquete
+	$labels = array(
+		'name'          => 'Paquetes',
+		'singular_name' => 'Paquete',
+		'add_new'       => 'Nueva paquete',
+		'add_new_item'  => 'Nueva paquete',
+		'edit_item'     => 'Editar paquete',
+		'new_item'      => 'Nueva paquete',
+		'all_items'     => 'Todo',
+		'view_item'     => 'Ver paquete',
+		'search_items'  => 'Buscar paquete',
+		'not_found'     => 'No hay paquete.',
+		'menu_name'     => 'Paquetes'
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'paquete' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 6,
+		'supports'           => array( 'title', 'editor', 'thumbnail' )
+	);
+	register_post_type( 'paquete', $args );	
+
 	// Beneficio
 	$labels = array(
 		'name'          => 'Beneficios',
@@ -67,37 +129,5 @@ add_action('init', function(){
 		'supports'           => array( 'title', 'editor' )
 	);
 	register_post_type( 'beneficio', $args );
-
-	// Seccion
-	$labels = array(
-		'name'          => 'Secciones',
-		'singular_name' => 'Sección',
-		'add_new'       => 'Nueva sección',
-		'add_new_item'  => 'Nueva sección',
-		'edit_item'     => 'Editar sección',
-		'new_item'      => 'Nueva sección',
-		'all_items'     => 'Todo',
-		'view_item'     => 'Ver sección',
-		'search_items'  => 'Buscar sección',
-		'not_found'     => 'No hay secciones.',
-		'menu_name'     => 'Secciones'
-	);
-
-	$args = array(
-		'labels'             => $labels,
-		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'seccion' ),
-		'capability_type'    => 'post',
-		'has_archive'        => true,
-		'hierarchical'       => false,
-		'menu_position'      => 4,
-		'supports'           => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'         => array( 'posicion' )
-	);
-	register_post_type( 'seccion', $args );
 
 });

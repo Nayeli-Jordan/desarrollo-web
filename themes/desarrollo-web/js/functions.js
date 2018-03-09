@@ -14,6 +14,7 @@ var $=jQuery.noConflict();
 			navScroll();
 			footerBottom();
 			$(".button-collapse").sideNav();
+			$('select').material_select();
 			$('.carousel').carousel({
 				shift: -5,
 				dist: -30
@@ -43,7 +44,8 @@ var $=jQuery.noConflict();
  
 		// } 
 
-		$("header nav ul li p, #intro").click(function() {
+		//Scroll menú
+		$("header nav ul li p, #intro, .link-contacto").click(function() {
 			//buttonMenuScroll();
 			var idOption = $(this).attr('id'); //Opción del menú
 			// console.log(idOption);
@@ -54,12 +56,12 @@ var $=jQuery.noConflict();
 			}, 1500);
 		});
 
+		//btn return
 		$("return-top").click(function() {
 			$('html, body').animate({		
 				scrollTop: $("#section-intro").offset().top
 			}, 1500);
-		});
- 
+		}); 
  
 	});
 })(jQuery);

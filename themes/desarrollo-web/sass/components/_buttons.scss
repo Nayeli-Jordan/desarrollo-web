@@ -56,7 +56,8 @@
 .btn,
 .btn-floating {
 	&:focus {
-		background-color: darken($button-raised-background, 10%);
+		background-color: $primary-color;
+		color:#fff; 
 	}
 }
 
@@ -79,22 +80,13 @@
 		@extend .z-depth-1-half;
 	}
 	&.btn-light {
-		color: #fff;
-		border: 1px solid #fff;
-			&:hover {
-				border: 1px solid #fff;
-				background-color: #fff;
-				color: $primary-color;
-			}
-	}
-	&.btn-light {
 		color: $dark-color-dark;
 		border: 1px solid $dark-color-dark;
-			&:hover {
-				border: 1px solid $primary-color-light;
-				background-color: $primary-color-light;
-				color: #fff;
-			}
+		&:hover, &:focus {
+			border: 1px solid $primary-color-light;
+			background-color: $primary-color-light;
+			color: #fff;
+		}
 	}
 }
 
@@ -285,7 +277,7 @@ button.btn-floating {
 	}
 
 	&:focus {
-		background-color: rgba(0,0,0,.1);
+		background-color: $primary-color;
 	}
 
 	&.disabled {

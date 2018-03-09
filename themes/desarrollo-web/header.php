@@ -63,26 +63,47 @@
 	<header class="js-header">
 		<nav>
 			<div class="nav-wrapper [ container ]">
-			<a href="#!" class="brand-logo">Logo</a>
+			<a href="<?php echo SITEURL ?>" class="brand-logo">Logo</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="[ nav-header ] right hide-on-small-only">
 					<!-- <li>
 						<p id="nosotros" href="<?php echo SITEURL ?>#nosotros" itemprop="actionOption">Nosotros</p>
 					</li> -->
 					<li>
-						<p id="servicios" href="<?php echo SITEURL ?>#servicios" itemprop="actionOption">Servicios</p>
+						<?php if ( is_front_page() && is_home() ) {  ?>
+							<p id="servicios" itemprop="actionOption">Servicios</p>
+						<?php } else { ?>
+							<a id="servicios" href="<?php echo SITEURL ?>#servicios" itemprop="actionOption">Servicios</a>
+						<?php } ?>						
 					</li>
 					<li>
-						<p id="paquetes" href="<?php echo SITEURL ?>#paquetes" itemprop="actionOption">Paquetes</p>
+						<?php if ( is_front_page() && is_home() ) {  ?>
+							<p id="paquetes" itemprop="actionOption">Paquetes</p>
+						<?php } else { ?>
+							<a id="paquetes" href="http://localhost:8888/desarrollo-web#paquetes" itemprop="actionOption">Paquetes</a>
+						<?php } ?>
+
 					</li>
 					<li>
-						<p id="beneficios" href="<?php echo SITEURL ?>#beneficios" itemprop="actionOption">Beneficios</p>
+						<?php if ( is_front_page() && is_home() ) {  ?>
+							<p id="beneficios" itemprop="actionOption">Beneficios</p>
+						<?php } else { ?>
+							<a id="beneficios" href="<?php echo SITEURL ?>#beneficios" itemprop="actionOption">Beneficios</a>
+						<?php } ?>
 					</li>
 					<li>
-						<p id="contacto" href="<?php echo SITEURL ?>#contacto" itemprop="actionOption">Contacto</p>
+						<?php if ( is_front_page() && is_home() ) {  ?>
+							<p id="contacto" itemprop="actionOption">Contacto</p>
+						<?php } else { ?>
+							<a id="contacto" href="<?php echo SITEURL ?>#contacto" itemprop="actionOption">Contacto</a>
+						<?php } ?>
 					</li>
 					<li>
-						<p id="faqs" href="<?php echo SITEURL ?>#faqs" itemprop="actionOption">Faq´s</p>
+						<?php if ( is_front_page() && is_home() ) {  ?>
+							<p id="faqs" itemprop="actionOption">Faq´s</p>
+						<?php } else { ?>
+							<a id="faqs" href="<?php echo SITEURL ?>#faqs" itemprop="actionOption">Faq´s</a>
+						<?php } ?>
 					</li>
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
@@ -107,3 +128,10 @@
 		</nav>
 	</header>
 	<div class="main-body">
+
+	<?php
+		// $custom_menu = array(
+		// 	'location'	=>	'top_menu',
+		// );
+		// wp_nav_menu($custom_menu);
+	?>

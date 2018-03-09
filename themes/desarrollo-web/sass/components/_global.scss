@@ -73,6 +73,9 @@ a {
 .clearfix {
 	clear: both;
 }
+@media (max-width: 1199px){
+	.clearfix-large-and-down	{ clear: both; }
+}
 
 
 // Z-levels

@@ -8,8 +8,15 @@ header {
 		line-height: 35px;
 		background-color: $primary-color-light;
 		border-bottom: none;
-		.brand-logo { color: #fff; } //sólo si es texto sino quitar
-		ul {
+		.brand-logo, .button-collapse { color: #fff; } //sólo si es texto sino quitar
+		.button-collapse {
+			height: 35px;
+			i {
+				height: 35px;
+				line-height: 35px;
+			}
+		}
+		ul.nav-header { //desktop
 			a, p {
 				font-size: 14px;
 				color: #fff;

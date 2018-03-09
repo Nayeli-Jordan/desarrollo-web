@@ -157,7 +157,7 @@ $timepicker-clock-plate-bg: #eee;
 $dropdown-bg-color: #fff !default;
 $dropdown-hover-bg-color: #eee !default;
 $dropdown-color: $secondary-color !default;
-$dropdown-item-height: 50px !default;
+$dropdown-item-height: 20px !default;
 
 
 // 10. Fonts
@@ -182,7 +182,7 @@ $input-margin-bottom: 20px;
 $input-margin: 0 0 $input-margin-bottom 0 !default;
 $input-padding: 0 !default;
 $input-transition: all .3s !default;
-$label-font-size: .8rem !default;
+$label-font-size: 12px !default;
 $input-disabled-color: rgba(0,0,0, .42) !default;
 $input-disabled-solid-color: #949494 !default;
 $input-disabled-border: 1px dotted $input-disabled-color !default;

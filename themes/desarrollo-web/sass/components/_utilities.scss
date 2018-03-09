@@ -41,6 +41,10 @@
 .margin-left-large 				{ margin-left: 20px; }
 .margin-left-xlarge 			{ margin-left: 25px; }
 
+@media #{$small-and-down}{
+	.margin-top-large-sm-and-down		{ margin-top: 20px; }
+}
+
 .padding-top-small 				{ padding-top: 10px; }
 .padding-top 					{ padding-top: 15px; }
 .padding-top-large 				{ padding-top: 20px; }
@@ -94,6 +98,10 @@
 .text-center { text-align: center; } 
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+
+@media #{$small-and-down}{
+	.text-center-sm-and-down { text-align: center; } 
+}
 
 //line
 
