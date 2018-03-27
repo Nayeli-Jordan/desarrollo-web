@@ -25,7 +25,7 @@
 		$btn = get_post_meta( $post_id, 'seccion_btn', true );
 	?>
 		<section id="section-intro" class="[ relative ][ bg-image ][ margin-top-50 ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
-			<div class="[ bg-light-opacity ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
+			<div class="[ bg-dark-opacity-minor ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 			<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 				<?php the_content(); ?>
 				<?php if( $url != "" ) { ?>
@@ -78,37 +78,6 @@
 			<p>Falta agregar información</p>	
 		<?php endif; ?>
 
-		<div class="carousel [ servicios ]">
-
-			<?php
-				$servicio_args = array(
-					'post_type' => 'servicio',
-					'posts_per_page' => -1,
-					'order'=> 'ASC',
-				);
-				$servicio_query = new WP_Query( $servicio_args );
-				if ( $servicio_query->have_posts() ) :
-				$i = 1;
-				while ( $servicio_query->have_posts() ) : $servicio_query->the_post();
-			?>
-				<div class="carousel-item <?php if ($i == 1){ ?> active <?php } ?>">
-					<div class="[ bg-image ][ width-100p height-250 ]" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);">
-						<div class="triangulo-bottom-right absolute bottom-0 right-0"></div><div class="triangulo-bottom-left absolute bottom-0 left-0"></div>	
-						<div class="absolute bottom-0 left-0 padding-top-bottom-small padding-right-left-small">
-							<h4 class="[ color-light ]"><?php the_title(); ?></h4>
-							<hr class="line-xsmall">
-						</div>
-					</div>
-				</div>
-			<?php 
-				$i ++;
-				endwhile;
-				wp_reset_postdata();
-				else:
-			?>
-				<p>Falta agregar servicios</p>	
-			<?php endif; ?>
-		</div>
 		<div class="[ servicios ][ row ]">
 
 			<?php
@@ -122,11 +91,12 @@
 				$i = 1;
 				while ( $servicio_query->have_posts() ) : $servicio_query->the_post();
 			?>
-				<div class="[ col s12 m4 xl3 ][ margin-bottom ]">
+				<div class="[ col s12 sm6 m4 ][ margin-bottom ]">
 					<div class="servicio-item">
-						<div class="[ bg-image ][ width-100p height-250 ]" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);">
-							<div class="triangulo-bottom-right absolute bottom-0 right-0"></div><div class="triangulo-bottom-left absolute bottom-0 left-0"></div>	
-							<div class="absolute bottom-0 left-0 padding-top-bottom-small padding-right-left-small">
+						<div class="[ bg-image ][ width-100p height-250 ]" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);">							
+							<div class="triangulo-bottom-left absolute bottom-0 left-0  wow bounceInUp ]"></div>	
+							<div class="triangulo-bottom-right absolute bottom-0 right-0 wow fadeInUp ]" data-wow-delay="0.2s"></div>
+							<div class="absolute bottom-0 left-0 padding-top-bottom-small padding-right-left-small wow fadeIn ]" data-wow-delay="0.4s">
 								<h4 class="[ color-light ]"><?php the_title(); ?></h4>
 								<hr class="line-xsmall">
 							</div>
@@ -170,7 +140,7 @@
 		$btn = get_post_meta( $post_id, 'seccion_btn', true );			
 	?>
 		<section class="[ relative ][ bg-image ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
-			<div class="[ bg-light-opacity ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
+			<div class="[ bg-dark-opacity-minor ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 			<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 				<?php the_content(); ?>
 				<?php if( $url != "" ) { ?>
@@ -252,8 +222,8 @@
 				<div class="carousel-item <?php if ($i == 1){ ?> active <?php } ?>">
 					<div class="[ card ]">
 						<div class="[ item-locked ]"></div>
-						<div class="triangulo-top-right absolute right-0 [ wow bounceInDown ]" data-wow-delay="0.3s"></div>		
-						<div class="triangulo-top-left absolute left-0 [ wow bounceInDown ]"></div>
+						<div class="triangulo-top-right absolute right-0 [ wow slideInDown ]" data-wow-delay="0.3s"></div>		
+						<div class="triangulo-top-left absolute left-0 [ wow slideInDown ]"></div>
 						<div class="[ card-content ][ padding-top-bottom-xlarge ]">
 							<a href="<?php the_permalink(); ?>">
 								<h3 class="[ color-primary ][ text-center ]"><?php the_title(); ?></h3>
@@ -300,9 +270,22 @@
 									<li><?php echo $contenido9; ?></li>
 								<?php } ?>
 							</ul>
-							<a class="waves-effect waves-light btn btn-small [ block ][ center ]" href="<?php the_permalink(); ?>">Ver más</a>
+							<!-- Modal Trigger -->
+							<a class="waves-effect waves-light btn btn-small [ block ][ center ] modal-trigger" href="#modal<?php echo $i; ?>">Ver más</a>
 						</div>
-						<div class="triangulo-bottom-right absolute right-0 bottom-0 [ wow bounceInUp ]"></div>
+						<div class="triangulo-bottom-right absolute right-0 bottom-0 [ wow slideInUp ]"></div>
+					</div>
+				</div>
+
+
+				<!-- Modal Structure -->
+				<div id="modal<?php echo $i; ?>" class="modal bottom-sheet">
+					<div class="modal-content">
+						<h4>Modal Header</h4>
+						<p>A bunch of text</p>
+					</div>
+					<div class="modal-footer">
+						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
 					</div>
 				</div>
 			<?php
@@ -345,7 +328,7 @@
 		$btn = get_post_meta( $post_id, 'seccion_btn', true );			
 	?>
 		<section class="[ relative ][ bg-image ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
-			<div class="[ bg-light-opacity ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
+			<div class="[ bg-dark-opacity-minor ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 			<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 				<?php the_content(); ?>
 				<?php if( $url != "" ) { ?>

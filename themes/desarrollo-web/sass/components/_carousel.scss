@@ -91,30 +91,6 @@
   }
 }
 
-.carousel.servicios { height: 250px; 
-  .carousel-item { 
-    width: 300px; 
-    @media #{$small-and-down}{
-      width: 220px; 
-    }
-    .bg-image {
-      overflow: hidden;
-    }
-  }
-}
-.servicios {  
-  .servicio-item { 
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-    @media #{$small-and-down}{
-      height: 250px;
-    }
-    .bg-image {
-      overflow: hidden;
-    }
-  }
-}
 .carousel.paquetes { height: 360px; }
 
 .carousel {

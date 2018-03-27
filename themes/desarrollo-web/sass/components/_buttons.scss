@@ -80,8 +80,8 @@
 		@extend .z-depth-1-half;
 	}
 	&.btn-light {
-		color: $dark-color-dark;
-		border: 1px solid $dark-color-dark;
+		color: #fff;
+		border: 1px solid #fff;
 		&:hover, &:focus {
 			border: 1px solid $primary-color-light;
 			background-color: $primary-color-light;

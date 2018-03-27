@@ -16,14 +16,15 @@ var $=jQuery.noConflict();
 			$(".button-collapse").sideNav();
 			$('select').material_select();
 			$('.carousel').carousel({
-				shift: -25,
+				shift: 35,
 				dist: -30
 			});
-			autoplay();   
-			function autoplay() {
-				$('.servicios.carousel').carousel('next');
-				setTimeout(autoplay, 8000);
-			} 
+			$('.modal').modal();
+			// autoplay();   
+			// function autoplay() {
+			// 	$('.servicios.carousel').carousel('next');
+			// 	setTimeout(autoplay, 8000);
+			// } 
 
 
 		});
@@ -45,7 +46,7 @@ var $=jQuery.noConflict();
 		// } 
 
 		//Scroll menú
-		$("header nav ul li p, #intro, .link-contacto").click(function() {
+		$(".item-menu, #intro, .link-contacto").click(function() {
 			//buttonMenuScroll();
 			var idOption = $(this).attr('id'); //Opción del menú
 			// console.log(idOption);
