@@ -98,7 +98,7 @@
 							<a id="contacto" href="<?php echo SITEURL ?>#contacto" itemprop="actionOption">Contacto</a>
 						<?php } ?>
 					</li>
-					<li>
+					<li class="hide">
 						<?php if ( is_front_page() && is_home() ) {  ?>
 							<p id="faqs" itemprop="actionOption">Faq´s</p>
 						<?php } else { ?>
@@ -120,12 +120,13 @@
 					<li>
 						<p id="contacto" href="<?php echo SITEURL ?>#contacto" itemprop="actionOption">Contacto</p>
 					</li>
-					<li>
+					<li class="hide">
 						<p id="faqs" href="<?php echo SITEURL ?>#faqs" itemprop="actionOption">Faq´s</p>
 					</li>
 				</ul>
 			</div>
 		</nav>
+
 	</header>
 	<div class="main-body">
 

@@ -30,6 +30,7 @@
 .margin-bottom 					{ margin-bottom: 15px; }
 .margin-bottom-large 			{ margin-bottom: 20px; }
 .margin-bottom-xlarge 			{ margin-bottom: 25px; }
+.no-margin-bottom	 			{ margin-bottom: 0px; }
 
 .margin-right-small 			{ margin-right: 10px; }
 .margin-right 					{ margin-right: 15px; }
@@ -81,6 +82,7 @@
 .width-100p { width: 100%; }
 
 .height-200 { height: 200px; }
+.height-250 { height: 250px; }
 
 //Position
 .absolute { position: absolute; }
@@ -147,19 +149,66 @@ hr.line-xsmall {
 	border-right: 110px solid $secondary-color-light;
 	border-top: 10px solid $secondary-color-light;
 }
-
 .triangulo-top-left {
 	border-left: 110px solid $secondary-color-dark;
 	border-bottom: 10px solid transparent;
 	border-right: 110px solid transparent;
 	border-top: 10px solid $secondary-color-dark;
 }
-
 .triangulo-bottom-right {
 	border-left: 110px solid transparent;
 	border-bottom: 10px solid $secondary-color;
 	border-right: 110px solid $secondary-color;
 	border-top: 10px solid transparent;
+}
+
+.triangulo-large-top-right {
+	border-left: 210px solid transparent;
+	border-bottom: 25px solid transparent;
+	border-right: 210px solid $primary-color-light;
+	border-top: 25px solid $primary-color-light;
+	@media #{$small-and-down}{
+		border-left-width: 210px;
+		border-bottom-width: 15px;
+		border-right-width: 210px;
+		border-top-width: 15px;
+	}
+}
+.triangulo-large-top-left {
+	border-left: 210px solid $primary-color-dark;
+	border-bottom: 25px solid transparent;
+	border-right: 210px solid transparent;
+	border-top: 25px solid $primary-color-dark;
+	@media #{$small-and-down}{
+		border-left-width: 210px;
+		border-bottom-width: 15px;
+		border-right-width: 210px;
+		border-top-width: 15px;
+	}
+}
+.triangulo-large-bottom-left {
+	border-left: 210px solid $secondary-color-light;
+	border-top: 25px solid transparent;
+	border-right: 210px solid transparent;
+	border-bottom: 25px solid $secondary-color-light;
+	@media #{$small-and-down}{
+		border-left-width: 210px;
+		border-top-width: 15px;
+		border-right-width: 210px;
+		border-bottom-width: 15px;
+	}	
+}
+.triangulo-large-bottom-right {
+	border-left: 210px solid transparent;
+	border-bottom: 25px solid $primary-color;
+	border-right: 210px solid $primary-color;
+	border-top: 25px solid transparent;
+	@media #{$small-and-down}{
+		border-left-width: 210px;
+		border-bottom-width: 15px;
+		border-right-width: 210px;
+		border-top-width: 15px;
+	}	
 }
 
 .triangulo-bottom-right-footer {
@@ -194,11 +243,21 @@ hr.line-xsmall {
 		border-top: 20px solid transparent;
 	}
 	.triangulo-bottom-left {
-		border-right: 140px solid transparent;
+		border-right: 160px solid transparent;
 		border-bottom:30px solid $primary-color;
-		border-left: 140px solid $primary-color;
+		border-left: 160px solid $primary-color;
 		border-top: 30px solid transparent;
 	}	
+}
+
+#section-beneficios {
+	.col {
+		small {
+			height: 65px;
+			overflow: hidden;
+			display: block;			
+		}
+	}
 }
 
 

@@ -16,7 +16,7 @@ var $=jQuery.noConflict();
 			$(".button-collapse").sideNav();
 			$('select').material_select();
 			$('.carousel').carousel({
-				shift: -5,
+				shift: -25,
 				dist: -30
 			});
 			autoplay();   
@@ -52,7 +52,7 @@ var $=jQuery.noConflict();
 			var idSection = "#section-" + idOption; //Sección a la que se dirigirá
 			// console.log(idSection); 
 			$('html, body').animate({		
-				scrollTop: $(idSection).offset().top - 100
+				scrollTop: $(idSection).offset().top - 50
 			}, 1500);
 		});
 

@@ -16,7 +16,7 @@ p + p { margin-top: 5px; }
   font-family: 'Alegreya Sans', sans-serif;
   font-size: 26px;
   color: #212121;
-  text-shadow: 2px 1px 15px #f5f5f5;
+  text-shadow: 0px 1px 6px #f5f5f5;
   @media #{$small-and-down} {
     font-size: 20px;
   }
@@ -69,12 +69,12 @@ small {
   line-height: 12px; 
 }
 small p { 
-  font-size: 10px;
+  font-size: 11px;
   line-height: 16px; 
 }
-.large {
-  font-size: 14px; 
-}
+.large { font-size: 14px; }
+.xlarge { font-size: 18px; }
+
 .light { font-weight: 300; }
 .thin { font-weight: 200; }
 

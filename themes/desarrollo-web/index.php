@@ -92,7 +92,7 @@
 				while ( $servicio_query->have_posts() ) : $servicio_query->the_post();
 			?>
 				<div class="carousel-item <?php if ($i == 1){ ?> active <?php } ?>">
-					<div class="[ bg-image ][ width-100p height-200 ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+					<div class="[ bg-image ][ width-100p height-250 ]" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);">
 						<div class="triangulo-bottom-right absolute bottom-0 right-0"></div><div class="triangulo-bottom-left absolute bottom-0 left-0"></div>	
 						<div class="absolute bottom-0 left-0 padding-top-bottom-small padding-right-left-small">
 							<h4 class="[ color-light ]"><?php the_title(); ?></h4>
@@ -100,6 +100,40 @@
 						</div>
 					</div>
 				</div>
+			<?php 
+				$i ++;
+				endwhile;
+				wp_reset_postdata();
+				else:
+			?>
+				<p>Falta agregar servicios</p>	
+			<?php endif; ?>
+		</div>
+		<div class="[ servicios ][ row ]">
+
+			<?php
+				$servicio_args = array(
+					'post_type' => 'servicio',
+					'posts_per_page' => -1,
+					'order'=> 'ASC',
+				);
+				$servicio_query = new WP_Query( $servicio_args );
+				if ( $servicio_query->have_posts() ) :
+				$i = 1;
+				while ( $servicio_query->have_posts() ) : $servicio_query->the_post();
+			?>
+				<div class="[ col s12 m4 xl3 ][ margin-bottom ]">
+					<div class="servicio-item">
+						<div class="[ bg-image ][ width-100p height-250 ]" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);">
+							<div class="triangulo-bottom-right absolute bottom-0 right-0"></div><div class="triangulo-bottom-left absolute bottom-0 left-0"></div>	
+							<div class="absolute bottom-0 left-0 padding-top-bottom-small padding-right-left-small">
+								<h4 class="[ color-light ]"><?php the_title(); ?></h4>
+								<hr class="line-xsmall">
+							</div>
+						</div>
+					</div>					
+				</div>
+
 			<?php 
 				$i ++;
 				endwhile;
@@ -213,17 +247,20 @@
 				$contenido6 = get_post_meta( $post_id, 'paquete_contenido6', true );
 				$contenido7 = get_post_meta( $post_id, 'paquete_contenido7', true );
 				$contenido8 = get_post_meta( $post_id, 'paquete_contenido8', true );
+				$contenido9 = get_post_meta( $post_id, 'paquete_contenido9', true );
 			?>
 				<div class="carousel-item <?php if ($i == 1){ ?> active <?php } ?>">
 					<div class="[ card ]">
 						<div class="[ item-locked ]"></div>
-						<div class="triangulo-top-right absolute right-0"></div>			
-						<div class="triangulo-top-left absolute left-0"></div>
+						<div class="triangulo-top-right absolute right-0 [ wow bounceInDown ]" data-wow-delay="0.3s"></div>		
+						<div class="triangulo-top-left absolute left-0 [ wow bounceInDown ]"></div>
 						<div class="[ card-content ][ padding-top-bottom-xlarge ]">
-							<h3 class="[ color-primary ][ text-center ]"><?php the_title(); ?></h3>
+							<a href="<?php the_permalink(); ?>">
+								<h3 class="[ color-primary ][ text-center ]"><?php the_title(); ?></h3>
+							</a>							
 							<hr class="line-difumined-small">
 							<div class="[ info-paquete ]">
-								<?php the_content(); ?>
+								<?php the_excerpt(); ?>
 							</div>
 							<hr class="line-difumined-large">
 							<p class="[ text-center ][ color-primary-dark ][ strong ]">	
@@ -259,10 +296,13 @@
 								<?php if( $contenido8 != "" ) { ?>
 									<li><?php echo $contenido8; ?></li>
 								<?php } ?>
+								<?php if( $contenido9 != "" ) { ?>
+									<li><?php echo $contenido9; ?></li>
+								<?php } ?>
 							</ul>
 							<a class="waves-effect waves-light btn btn-small [ block ][ center ]" href="<?php the_permalink(); ?>">Ver más</a>
 						</div>
-						<div class="triangulo-bottom-right absolute right-0 bottom-0"></div>
+						<div class="triangulo-bottom-right absolute right-0 bottom-0 [ wow bounceInUp ]"></div>
 					</div>
 				</div>
 			<?php
@@ -274,6 +314,9 @@
 				<p>Falta agregar paquetes</p>	
 			<?php endif; ?>		
 
+		</div>
+		<div class="[ center ]">
+			<a class="link-contacto waves-effect waves-light btn" id="contacto" itemprop="actionOption">Contáctanos</a>			
 		</div>
 	</section>
 
@@ -372,7 +415,7 @@
 				$post_id = get_the_ID();
 				$icon = get_post_meta( $post_id, 'beneficio_icon', true );
 			?>
-				<div class="col s12 sm6 m4 l3 [ text-center ][ margin-bottom ][ wow jello ]">					
+				<div class="col s12 sm6 m4 l3 [ text-center ][ margin-bottom ][ wow bounceInRight ]">					
 					<?php if( $icon != "" ) { ?>
 						<i class="material-icons"><?php echo $icon; ?></i>
 					<?php } else { ?>	
@@ -382,8 +425,10 @@
 					<hr class="line-difumined-large">
 					<small><?php the_content(); ?></small>
 				</div>
+			<?php if ($i % 4 == 1){ ?>
+
+			<?php } ?>
 			<?php 
-				if ($i % 4 == 1) //to do revizar si funcionó
 				$i ++;				
 				endwhile;
 				wp_reset_postdata();
@@ -392,28 +437,6 @@
 				<p>Falta agregar beneficios</p>	
 			<?php endif; ?>
 
-		</div>
-	</section>
-	<section id="section-contacto" class="[ relative ][ bg-image ]" style="background-image: url(<?php echo THEMEPATH ?>images/contacto.png);">
-		<div class="[ bg-dark-opacity ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
-		<div class="[ container ][ relative ][ color-light ][ padding-top-bottom-section ]">
-			<h2 class="[ text-center ]">Contacto</h2>
-			<div class="[ row ]">
-				<div class="[ col s12 m9 ]">
-					<p class="large">Gracias por ponerte en contacto!</p>
-					<p class="[ margin-bottom ]">No te preocupes si aún no estás seguro de lo que tu proyecto requiere, podemos ayudarte a encontrar la mejor opción. Completa los campos para que nos sea más fácil ayudarte.</p>
-					<div class="[ row ]">
-						<?php echo do_shortcode('[contact-form-7 id="4" title="Contacto"]'); ?>
-					</div>					
-				</div>
-				<div class="[ col s12 m3 ][ text-center-sm-and-down ][ margin-top-large-sm-and-down ]">
-					<p>Ciudad de México</p>
-					<p>Horario de asistencia<br/>10:00 a 18:00 hrs.</p>
-					<p><a class="[ color-light ]" href="tel:+52559391351">tel. 55 55 55 55</a></p>
-					<p><a class="[ color-light ]" href="tel:+52559391351">cel. 55 59 39 13 51</a></p>
-					<p><a class="[ color-light ]" href="mailto:nayeli.jordan16@gmail.com">nayeli.jordan16@gmail.com</a></p>
-				</div>
-			</div>			
 		</div>
 	</section>
 <?php get_footer() ?>

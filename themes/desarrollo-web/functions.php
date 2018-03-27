@@ -25,7 +25,7 @@ require_once( 'inc/taxonomies.php' );
 add_action( 'wp_enqueue_scripts', function(){
  
 	wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.2.1.min.js', array(''), '2.1.1', true );
-	wp_enqueue_script( 'materialize_js', JSPATH.'bin/materialize.js', array('jquery'), '1.0', true );
+	wp_enqueue_script( 'materialize_js', JSPATH.'bin/materialize.min.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'wow_js', JSPATH.'wow.min.js', array(), '', true );
 	wp_enqueue_script( 'dw_functions', JSPATH.'functions.js', array('materialize_js'), '1.0', true );
  
@@ -54,6 +54,13 @@ add_action('after_setup_theme', 'add_top_menu');
 function add_top_menu(){
 	register_nav_menu('top_menu',__('Top menu'));
 }
+
+//Delimitar número palabras excerpt
+function custom_excerpt_length( $length ) {
+	return 15;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 
 //CUSTOM POST TYPE//
 //seccion
@@ -117,6 +124,7 @@ function display_paquete_atributos( $paquete ){
 	$contenido6 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido6', true ) );
 	$contenido7 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido7', true ) );
 	$contenido8 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido8', true ) );
+	$contenido9 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido9', true ) );
 ?>
 
 <table style="width:100%; text-align: left;">
@@ -167,6 +175,11 @@ function display_paquete_atributos( $paquete ){
 			<input style="width:100%" type="text" name="paquete_contenido8" value="<?php echo $contenido8; ?>">
 		</th>		
 	</tr>
+	<tr>
+		<th style="padding-bottom:10px">
+			<input style="width:100%" type="text" name="paquete_contenido9" value="<?php echo $contenido9; ?>">
+		</th>		
+	</tr>
 </table>
 <?php
 
@@ -203,6 +216,9 @@ function paquete_save_metas( $idpaquete, $paquete ){
 		}
 		if ( isset( $_POST['paquete_contenido8'] ) ){
 			update_post_meta( $idpaquete, 'paquete_contenido8', $_POST['paquete_contenido8'] );
+		}
+		if ( isset( $_POST['paquete_contenido9'] ) ){
+			update_post_meta( $idpaquete, 'paquete_contenido9', $_POST['paquete_contenido9'] );
 		}
 	}
 }
