@@ -104,3 +104,54 @@
 	<p>public</p>
 </div>
 </div>
+
+
+<div class="col s12 sm6 m4 l6">
+<label> Nombre completo
+    [text* nombre-completo] </label>
+</div>
+<div class="col s12 sm6 m4 l6">
+<label> Email*
+    [email* tu-email] </label>
+</div>
+<div class=" clearfix-tablet"></div>
+<div class="col s12 sm6 m4 l6">
+<label> Teléfono*
+    [tel* telefono] </label>
+</div>
+<div class=" clearfix-medium"></div>
+<div class="col s12 sm6 m4 l6">
+<label> Nombre de la empresa
+    [text nombre-empresa] </label>
+</div>
+<div class=" clearfix-large-and-up"></div>
+<div class=" clearfix-tablet"></div>
+<div class="col s12 sm6 m4 l6">
+<label> Giro de la empresa o negocio*
+    [select* giro-empresa class:input-field "industrial" "comercio mayorista" "comercio minorista" "de servicio" "servicio profesional" "transporte" "turismo" "hospedaje" "salud" "comunicación" "diseño" "alimentos" "tecnología" "educación" "otro" ] </label>
+</div>
+<div class="col s12 sm6 m4 l6">
+<label> Url del sitio
+    [url url-sitio] </label>
+</div>
+<div class="clearfix"></div>
+<div class="col s12 sm6 m4 l4">
+<label>¿Qué servicio(s) necesitas?*</label>
+[checkbox* servicios use_label_element "Diseño web" "Desarrollo web" "Desarrollo de eCommerce" "SEO y Analitics" "Hosting" "Registro de dominio" "Posicionamiento web"]
+</div>
+<div class="col s12 sm6 m4 l4">
+<label>¿En cuánto tiempo la necesitas?*</label>
+[checkbox* tiempo use_label_element exclusive "2 semanas (no es sitio web)" "4 semanas" "8 semanas" "12 semanas" "Lo necesario"]
+</div>
+<div class="col s12 m4 l4">
+<label>¿Cuál es tu presupuesto?*</label>
+[checkbox* presupuesto use_label_element exclusive "Menor de $8,000 MXN (no es sitio web)" "$8,000 MXN (costo mínimo sitio web)" "$12,000 MXN" "$16,000 MXN" "$20,000 MXN" "Lo que se requiera"]
+</div>
+<div class="clearfix"></div>
+<div class="col s12">
+<label> Cuentanos sobre tu proyecto
+    [textarea tu-proyecto] </label>
+</div>
+<div class="col s12 text-right">
+[submit "Enviar"]
+</div>

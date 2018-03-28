@@ -28,8 +28,10 @@
 			<div class="[ bg-dark-opacity-minor ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 			<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 				<?php the_content(); ?>
-				<?php if( $url != "" ) { ?>
+				<?php if( $url != "" && $btn != "" ) { ?>
 					<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ]" href="<?php echo $url; ?>"><?php echo $btn; ?></a>
+				<?php } else if( $url == "" ) { ?>	
+					<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ] item-menu" id="contacto"><?php echo $btn; ?></a>
 				<?php } ?>				
 			</div>
 		</section>
@@ -64,7 +66,7 @@
 			while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
 		?>
 			<h2 class="[ text-center ][ color-primary ]"><?php the_title(); ?></h2>
-			<div class="row">
+			<div class="row text-center">
 				<div class="col s12 m10 offset-m1 l8 offset-l2 [ margin-bottom ]">
 					<?php the_content(); ?>
 				</div>
@@ -179,7 +181,7 @@
 			while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
 		?>
 			<h2 class="[ text-center ][ color-primary ]"><?php the_title(); ?></h2>
-			<div class="row">
+			<div class="row text-center">
 				<div class="col s12 m10 offset-m1 l8 offset-l2 [ margin-bottom ]">
 					<?php the_content(); ?>
 				</div>
@@ -194,6 +196,8 @@
 		<?php endif; ?>
 
 		<div class="carousel [ paquetes ]">
+			<div class="opacity-left"></div>
+			<div class="opacity-right"></div>
 
 			<?php
 				$paquete_args = array(
@@ -209,15 +213,7 @@
 				$custom_fields = get_post_custom();
 				$post_id = get_the_ID();
 				$precio = get_post_meta( $post_id, 'paquete_precio', true );
-				$contenido1 = get_post_meta( $post_id, 'paquete_contenido1', true );
-				$contenido2 = get_post_meta( $post_id, 'paquete_contenido2', true );
-				$contenido3 = get_post_meta( $post_id, 'paquete_contenido3', true );
-				$contenido4 = get_post_meta( $post_id, 'paquete_contenido4', true );
-				$contenido5 = get_post_meta( $post_id, 'paquete_contenido5', true );
-				$contenido6 = get_post_meta( $post_id, 'paquete_contenido6', true );
-				$contenido7 = get_post_meta( $post_id, 'paquete_contenido7', true );
-				$contenido8 = get_post_meta( $post_id, 'paquete_contenido8', true );
-				$contenido9 = get_post_meta( $post_id, 'paquete_contenido9', true );
+				$tiempo = get_post_meta( $post_id, 'paquete_tiempo', true );
 			?>
 				<div class="carousel-item <?php if ($i == 1){ ?> active <?php } ?>">
 					<div class="[ card ]">
@@ -230,64 +226,28 @@
 							</a>							
 							<hr class="line-difumined-small">
 							<div class="[ info-paquete ]">
-								<?php the_excerpt(); ?>
-							</div>
-							<hr class="line-difumined-large">
-							<p class="[ text-center ][ color-primary-dark ][ strong ]">	
-								<?php if( $precio != "" ) { ?>
+								<?php the_content(); ?>
+							</div>							
+							<?php if( $precio != "" ) { ?>
+								<hr class="line-difumined-large">
+								<p class="[ text-center ][ color-primary-dark ][ strong ]">	
 									Desde <?php echo $precio; ?> MXN
-								<?php } else { ?>	
-									<span class="link-contacto" id="contacto">Cóntactanos</span>
-								<?php } ?>								
-							</p>	
+								</p>
+							<?php } ?>								
 							<hr class="line-difumined-large">
-							<ul class="[ points-list ]">
-								<?php if( $contenido1 != "" ) { ?>
-									<li><?php echo $contenido1; ?></li>
-								<?php } ?>
-								<?php if( $contenido2 != "" ) { ?>
-									<li><?php echo $contenido2; ?></li>
-								<?php } ?>
-								<?php if( $contenido3 != "" ) { ?>
-									<li><?php echo $contenido3; ?></li>
-								<?php } ?>
-								<?php if( $contenido4 != "" ) { ?>
-									<li><?php echo $contenido4; ?></li>
-								<?php } ?>
-								<?php if( $contenido5 != "" ) { ?>
-									<li><?php echo $contenido5; ?></li>
-								<?php } ?>
-								<?php if( $contenido6 != "" ) { ?>
-									<li><?php echo $contenido6; ?></li>
-								<?php } ?>
-								<?php if( $contenido7 != "" ) { ?>
-									<li><?php echo $contenido7; ?></li>
-								<?php } ?>
-								<?php if( $contenido8 != "" ) { ?>
-									<li><?php echo $contenido8; ?></li>
-								<?php } ?>
-								<?php if( $contenido9 != "" ) { ?>
-									<li><?php echo $contenido9; ?></li>
-								<?php } ?>
-							</ul>
-							<!-- Modal Trigger -->
-							<a class="waves-effect waves-light btn btn-small [ block ][ center ] modal-trigger" href="#modal<?php echo $i; ?>">Ver más</a>
+							<!-- opciones del paquete -->
+							<?php echo custom_taxonomies_opciones(); ?>
+							<?php if( $tiempo != "" ) { ?>
+								<hr class="line-difumined-large">
+								<small class="block [ text-center ][ color-primary-dark ][ strong ]">	
+									Entrega: <?php echo $tiempo; ?>
+								</small>
+							<?php } ?>
 						</div>
 						<div class="triangulo-bottom-right absolute right-0 bottom-0 [ wow slideInUp ]"></div>
 					</div>
 				</div>
 
-
-				<!-- Modal Structure -->
-				<div id="modal<?php echo $i; ?>" class="modal bottom-sheet">
-					<div class="modal-content">
-						<h4>Modal Header</h4>
-						<p>A bunch of text</p>
-					</div>
-					<div class="modal-footer">
-						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-					</div>
-				</div>
 			<?php
 				$i ++;				
 				endwhile;
@@ -298,8 +258,37 @@
 			<?php endif; ?>		
 
 		</div>
+		<?php
+			$seccion_args = array(
+				'post_type' => 'seccion',
+				'posts_per_page' => 1,
+				'order'=> 'ASC',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'posicion',
+						'field'    => 'slug', //term_id, slug
+						'terms'    => 'paquetes2',
+						//'operator' => 'NOT IN'
+					),
+				)
+			);
+			$seccion_query = new WP_Query( $seccion_args );
+			if ( $seccion_query->have_posts() ) :
+			$i = 1;
+			while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
+		?>
+			<div class="row text-center margin-top">
+				<div class="col s12 m10 offset-m1 l8 offset-l2 [ margin-bottom ]">
+					<?php the_content(); ?>
+				</div>
+			</div>
+		<?php 
+			$i ++;
+			endwhile;
+			wp_reset_postdata();
+			endif; ?>
 		<div class="[ center ]">
-			<a class="link-contacto waves-effect waves-light btn" id="contacto" itemprop="actionOption">Contáctanos</a>			
+			<a class="link-contacto waves-effect waves-light btn" id="contacto" itemprop="actionOption">Cotiza tu proyecto</a>			
 		</div>
 	</section>
 
@@ -367,7 +356,7 @@
 			while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
 		?>
 			<h2 class="[ text-center ][ color-primary ]"><?php the_title(); ?></h2>
-			<div class="row">
+			<div class="row text-center">
 				<div class="col s12 m10 offset-m1 l8 offset-l2 [ margin-bottom ]">
 					<?php the_content(); ?>
 				</div>

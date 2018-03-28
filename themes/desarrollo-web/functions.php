@@ -78,7 +78,7 @@ function display_seccion_atributos( $seccion ){
 <table style="width:100%; text-align: left;">
 	<tr>
 		<th style="padding-bottom:10px">
-			<label>URL BOTÓN:</label></br>
+			<label>URL BOTÓN: (Deja vacio si deseas scroll a sección contacto)</label></br>
 			<input style="width:100%" type="text" name="seccion_url" value="<?php echo $url; ?>">
 		</th>
 	</tr>
@@ -116,69 +116,21 @@ function paquete_custom_metabox(){
 
 function display_paquete_atributos( $paquete ){
 	$precio = esc_html( get_post_meta( $paquete->ID, 'paquete_precio', true ) );
-	$contenido1 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido1', true ) );
-	$contenido2 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido2', true ) );
-	$contenido3 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido3', true ) );
-	$contenido4 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido4', true ) );
-	$contenido5 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido5', true ) );
-	$contenido6 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido6', true ) );
-	$contenido7 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido7', true ) );
-	$contenido8 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido8', true ) );
-	$contenido9 = esc_html( get_post_meta( $paquete->ID, 'paquete_contenido9', true ) );
+	$tiempo = esc_html( get_post_meta( $paquete->ID, 'paquete_tiempo', true ) );
 ?>
 
 <table style="width:100%; text-align: left;">
 	<tr>
 		<th style="padding-bottom:10px">
-			<label>Precio mínimo:</label></br>
+			<label>Precio mínimo: (ej. 12,000)</label></br>
 			<input style="width:100%" type="text" name="paquete_precio" value="<?php echo $precio; ?>">
 		</th>
 	</tr>
 	<tr>
-		<th style="padding-bottom:5px">
-			<label>Contiene:</label></br>
-			<input style="width:100%" type="text" name="paquete_contenido1" value="<?php echo $contenido1; ?>">
-		</th>		
-	</tr>
-	<tr>
-		<th style="padding-bottom:5px">
-			<input style="width:100%" type="text" name="paquete_contenido2" value="<?php echo $contenido2; ?>">
-		</th>		
-	</tr>
-	<tr>
-		<th style="padding-bottom:5px">
-			<input style="width:100%" type="text" name="paquete_contenido3" value="<?php echo $contenido3; ?>">
-		</th>		
-	</tr>
-	<tr>
-		<th style="padding-bottom:5px">
-			<input style="width:100%" type="text" name="paquete_contenido4" value="<?php echo $contenido4; ?>">
-		</th>		
-	</tr>
-	<tr>
 		<th style="padding-bottom:10px">
-			<input style="width:100%" type="text" name="paquete_contenido5" value="<?php echo $contenido5; ?>">
-		</th>		
-	</tr>
-	<tr>
-		<th style="padding-bottom:5px">
-			<input style="width:100%" type="text" name="paquete_contenido6" value="<?php echo $contenido6; ?>">
-		</th>		
-	</tr>
-	<tr>
-		<th style="padding-bottom:5px">
-			<input style="width:100%" type="text" name="paquete_contenido7" value="<?php echo $contenido7; ?>">
-		</th>		
-	</tr>
-	<tr>
-		<th style="padding-bottom:10px">
-			<input style="width:100%" type="text" name="paquete_contenido8" value="<?php echo $contenido8; ?>">
-		</th>		
-	</tr>
-	<tr>
-		<th style="padding-bottom:10px">
-			<input style="width:100%" type="text" name="paquete_contenido9" value="<?php echo $contenido9; ?>">
-		</th>		
+			<label>Tiempo mínimo de entrega: (ej. mínimo 4 semanas)</label></br>
+			<input style="width:100%" type="text" name="paquete_tiempo" value="<?php echo $tiempo; ?>">
+		</th>
 	</tr>
 </table>
 <?php
@@ -193,32 +145,8 @@ function paquete_save_metas( $idpaquete, $paquete ){
 		if ( isset( $_POST['paquete_precio'] ) ){
 			update_post_meta( $idpaquete, 'paquete_precio', $_POST['paquete_precio'] );
 		}
-		if ( isset( $_POST['paquete_contenido1'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido1', $_POST['paquete_contenido1'] );
-		}
-		if ( isset( $_POST['paquete_contenido2'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido2', $_POST['paquete_contenido2'] );
-		}
-		if ( isset( $_POST['paquete_contenido3'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido3', $_POST['paquete_contenido3'] );
-		}
-		if ( isset( $_POST['paquete_contenido4'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido4', $_POST['paquete_contenido4'] );
-		}
-		if ( isset( $_POST['paquete_contenido5'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido5', $_POST['paquete_contenido5'] );
-		}
-		if ( isset( $_POST['paquete_contenido6'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido6', $_POST['paquete_contenido6'] );
-		}
-		if ( isset( $_POST['paquete_contenido7'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido7', $_POST['paquete_contenido7'] );
-		}
-		if ( isset( $_POST['paquete_contenido8'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido8', $_POST['paquete_contenido8'] );
-		}
-		if ( isset( $_POST['paquete_contenido9'] ) ){
-			update_post_meta( $idpaquete, 'paquete_contenido9', $_POST['paquete_contenido9'] );
+		if ( isset( $_POST['paquete_tiempo'] ) ){
+			update_post_meta( $idpaquete, 'paquete_tiempo', $_POST['paquete_tiempo'] );
 		}
 	}
 }
@@ -264,3 +192,48 @@ function beneficio_save_metas( $idbeneficio, $beneficio ){
 		}
 	}
 }
+
+
+// Obtener la opciones (taxonomía) de un paquete con estilo en cada una 
+// Lo siguiente funciona pero sin estilo (todo corrido)
+// $terms = get_the_terms( $post->ID, 'opciones' ); 
+// foreach($terms as $term) {
+// 	echo $term->name;
+// }
+/**
+ * Get taxonomies terms links.
+ *
+ * @see get_object_taxonomies()
+ */
+function custom_taxonomies_opciones() {
+    // Get post by post ID.
+    if ( ! $post = get_post() ) {
+        return '';
+    }
+ 
+    // Get post type by post.
+    $post_type = $post->post_type;
+ 
+    // Get post type taxonomies.
+    $taxonomies = get_object_taxonomies( $post_type, 'opciones' );
+ 
+    $out = array();
+ 
+    foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+ 
+        // Get the terms related to post.
+        $terms = get_the_terms( $post->ID, $taxonomy_slug );
+ 
+        if ( ! empty( $terms ) ) {
+            $out[] = "<ul class='points-list'>";
+            foreach ( $terms as $term ) {
+                $out[] = sprintf( '<li>%1$s</li>',
+                    esc_html( $term->name )
+                );
+            }
+            $out[] = "\n</ul>\n";
+        }
+    }
+    return implode( '', $out );
+}
+

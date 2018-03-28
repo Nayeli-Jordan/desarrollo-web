@@ -201,11 +201,11 @@
     overflow: hidden;
   }
   hr.line-difumined-small + .info-paquete {
-    max-height: 87px;    
+    min-height: 88px;    
     //min-height: 83px;    
   }
-  ul { 
-    max-height: 113px;
+  ul.points-list { 
+    min-height: 180px;
     //min-height: 113px;
   }
 }

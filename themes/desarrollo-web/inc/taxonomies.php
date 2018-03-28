@@ -31,5 +31,31 @@ function custom_taxonomies_callback(){
 		register_taxonomy( 'posicion', 'categoria', $args );
 	}
 
+	// Categoria posicion sección
+	if( ! taxonomy_exists('opciones')){
+
+		$labels = array(
+			'name'              => 'Opción',
+			'singular_name'     => 'Opción',
+			'search_items'      => 'Buscar',
+			'all_items'         => 'Todos',
+			'edit_item'         => 'Editar opción',
+			'update_item'       => 'Actualizar opción',
+			'add_new_item'      => 'Nueva opción',
+			'menu_name'         => 'Opciones paquete'
+		);
+		$args = array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'opciones' ),
+		);
+
+		register_taxonomy( 'opciones', 'paquete', $args );
+	}	
+
 
 }

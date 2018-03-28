@@ -147,7 +147,7 @@ hr.line-xsmall {
 }
 
 .bg-dark-opacity-minor {
-	background-color: rgba(41, 41, 41, 0.3);
+	background-color: rgba(41, 41, 41, 0.6);
 }
 .bg-dark-opacity {
 	background-color: rgba(0, 0, 0, 0.7);
@@ -254,7 +254,7 @@ hr.line-xsmall {
 .servicios {  
 	.servicio-item { 
 		position: relative;
-		height: 200px;
+		height: 180px;
 		overflow: hidden;
 		@media #{$small-and-down}{
 			height: 150px;

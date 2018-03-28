@@ -12,9 +12,9 @@
 					</div>
 					<div class="[ col s12 l3 ][ text-center ][ margin-top-large-sm-and-down ][ wow lightSpeedIn ]">
 						<p>Ciudad de México</p>
-						<p class="[ margin-bottom ]">Horario de asistencia<br/>10:00 a 18:00 hrs.</p>
+						<p class="[ margin-bottom ]">Horario de asistencia<br/>10:00 a 19:00 hrs.</p>
 						<i class="medium material-icons">phone_iphone</i><br>
-						<p><a class="[ color-light ]" href="tel:+52559391351">tel. 55 55 55 55</a></p>
+						<!-- <p><a class="[ color-light ]" href="tel:+52559391351">tel. 55 55 55 55</a></p> -->
 						<p><a class="[ color-light ]" href="tel:+52559391351">cel. 55 59 39 13 51</a></p>
 						<i class="medium material-icons">mail_outline</i><br>
 						<p><a class="[ color-light ]" href="mailto:nayeli.jordan16@gmail.com">nayeli.jordan16@gmail.com</a></p>

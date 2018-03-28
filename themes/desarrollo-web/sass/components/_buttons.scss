@@ -82,6 +82,7 @@
 	&.btn-light {
 		color: #fff;
 		border: 1px solid #fff;
+		background-color: rgba(0, 0, 0, 0.5);
 		&:hover, &:focus {
 			border: 1px solid $primary-color-light;
 			background-color: $primary-color-light;

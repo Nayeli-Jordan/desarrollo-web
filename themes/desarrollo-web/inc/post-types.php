@@ -72,10 +72,10 @@ add_action('init', function(){
 	$labels = array(
 		'name'          => 'Paquetes',
 		'singular_name' => 'Paquete',
-		'add_new'       => 'Nueva paquete',
-		'add_new_item'  => 'Nueva paquete',
+		'add_new'       => 'Nuevo paquete',
+		'add_new_item'  => 'Nuevo paquete',
 		'edit_item'     => 'Editar paquete',
-		'new_item'      => 'Nueva paquete',
+		'new_item'      => 'Nuevo paquete',
 		'all_items'     => 'Todo',
 		'view_item'     => 'Ver paquete',
 		'search_items'  => 'Buscar paquete',

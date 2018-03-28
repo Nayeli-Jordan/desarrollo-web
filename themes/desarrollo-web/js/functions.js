@@ -17,7 +17,8 @@ var $=jQuery.noConflict();
 			$('select').material_select();
 			$('.carousel').carousel({
 				shift: 35,
-				dist: -30
+				dist: -30,
+				indicators: true
 			});
 			$('.modal').modal();
 			// autoplay();   

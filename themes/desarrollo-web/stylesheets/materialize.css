@@ -5996,11 +5996,11 @@ small p {
 }
 /* line 203, ../sass/components/_cards.scss */
 .paquetes hr.line-difumined-small + .info-paquete {
-  max-height: 87px;
+  min-height: 88px;
 }
 /* line 207, ../sass/components/_cards.scss */
-.paquetes ul {
-  max-height: 113px;
+.paquetes ul.points-list {
+  min-height: 180px;
 }
 
 /* line 1, ../sass/components/_toast.scss */
@@ -6303,15 +6303,16 @@ small p {
 .btn.btn-light, .btn-light.btn-large, .btn-light.btn-small {
   color: #fff;
   border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 85, ../sass/components/_buttons.scss */
+/* line 86, ../sass/components/_buttons.scss */
 .btn.btn-light:hover, .btn-light.btn-large:hover, .btn-light.btn-small:hover, .btn.btn-light:focus, .btn-light.btn-large:focus, .btn-light.btn-small:focus {
   border: 1px solid #009AAC;
   background-color: #009AAC;
   color: #fff;
 }
 
-/* line 94, ../sass/components/_buttons.scss */
+/* line 95, ../sass/components/_buttons.scss */
 .btn-floating {
   display: inline-block;
   color: #fff;
@@ -6328,39 +6329,39 @@ small p {
   cursor: pointer;
   vertical-align: middle;
 }
-/* line 95, ../sass/components/_buttons.scss */
+/* line 96, ../sass/components/_buttons.scss */
 .btn-floating:hover {
   background-color: #4A7700;
 }
-/* line 100, ../sass/components/_buttons.scss */
+/* line 101, ../sass/components/_buttons.scss */
 .btn-floating:before {
   border-radius: 0;
 }
-/* line 104, ../sass/components/_buttons.scss */
+/* line 105, ../sass/components/_buttons.scss */
 .btn-floating.btn-large {
   width: 56px;
   height: 56px;
 }
-/* line 105, ../sass/components/_buttons.scss */
+/* line 106, ../sass/components/_buttons.scss */
 .btn-floating.btn-large.halfway-fab {
   bottom: -28px;
 }
-/* line 111, ../sass/components/_buttons.scss */
+/* line 112, ../sass/components/_buttons.scss */
 .btn-floating.btn-large i {
   line-height: 56px;
 }
-/* line 116, ../sass/components/_buttons.scss */
+/* line 117, ../sass/components/_buttons.scss */
 .btn-floating.halfway-fab {
   position: absolute;
   right: 24px;
   bottom: -20px;
 }
-/* line 117, ../sass/components/_buttons.scss */
+/* line 118, ../sass/components/_buttons.scss */
 .btn-floating.halfway-fab.left {
   right: auto;
   left: 24px;
 }
-/* line 143, ../sass/components/_buttons.scss */
+/* line 144, ../sass/components/_buttons.scss */
 .btn-floating i {
   width: inherit;
   display: inline-block;
@@ -6370,12 +6371,12 @@ small p {
   line-height: 40px;
 }
 
-/* line 154, ../sass/components/_buttons.scss */
+/* line 155, ../sass/components/_buttons.scss */
 button.btn-floating {
   border: none;
 }
 
-/* line 159, ../sass/components/_buttons.scss */
+/* line 160, ../sass/components/_buttons.scss */
 .fixed-action-btn {
   position: fixed;
   right: 23px;
@@ -6384,15 +6385,15 @@ button.btn-floating {
   margin-bottom: 0;
   z-index: 997;
 }
-/* line 161, ../sass/components/_buttons.scss */
+/* line 162, ../sass/components/_buttons.scss */
 .fixed-action-btn.active ul {
   visibility: visible;
 }
-/* line 166, ../sass/components/_buttons.scss */
+/* line 167, ../sass/components/_buttons.scss */
 .fixed-action-btn.horizontal {
   padding: 0 0 0 15px;
 }
-/* line 169, ../sass/components/_buttons.scss */
+/* line 170, ../sass/components/_buttons.scss */
 .fixed-action-btn.horizontal ul {
   text-align: right;
   right: 64px;
@@ -6403,28 +6404,28 @@ button.btn-floating {
   width: 500px;
   /*width 100% only goes to width of button container */
 }
-/* line 178, ../sass/components/_buttons.scss */
+/* line 179, ../sass/components/_buttons.scss */
 .fixed-action-btn.horizontal ul li {
   display: inline-block;
   margin: 15px 15px 0 0;
 }
-/* line 185, ../sass/components/_buttons.scss */
+/* line 186, ../sass/components/_buttons.scss */
 .fixed-action-btn.toolbar {
   padding: 0;
   height: 56px;
 }
-/* line 187, ../sass/components/_buttons.scss */
+/* line 188, ../sass/components/_buttons.scss */
 .fixed-action-btn.toolbar.active > a i {
   opacity: 0;
 }
-/* line 195, ../sass/components/_buttons.scss */
+/* line 196, ../sass/components/_buttons.scss */
 .fixed-action-btn.toolbar ul {
   display: flex;
   top: 0;
   bottom: 0;
   z-index: 1;
 }
-/* line 201, ../sass/components/_buttons.scss */
+/* line 202, ../sass/components/_buttons.scss */
 .fixed-action-btn.toolbar ul li {
   flex: 1;
   display: inline-block;
@@ -6432,7 +6433,7 @@ button.btn-floating {
   height: 100%;
   transition: none;
 }
-/* line 208, ../sass/components/_buttons.scss */
+/* line 209, ../sass/components/_buttons.scss */
 .fixed-action-btn.toolbar ul li a {
   display: block;
   overflow: hidden;
@@ -6445,11 +6446,11 @@ button.btn-floating {
   line-height: 56px;
   z-index: 1;
 }
-/* line 220, ../sass/components/_buttons.scss */
+/* line 221, ../sass/components/_buttons.scss */
 .fixed-action-btn.toolbar ul li a i {
   line-height: inherit;
 }
-/* line 235, ../sass/components/_buttons.scss */
+/* line 236, ../sass/components/_buttons.scss */
 .fixed-action-btn ul {
   left: 0;
   right: 0;
@@ -6459,15 +6460,15 @@ button.btn-floating {
   margin: 0;
   visibility: hidden;
 }
-/* line 244, ../sass/components/_buttons.scss */
+/* line 245, ../sass/components/_buttons.scss */
 .fixed-action-btn ul li {
   margin-bottom: 15px;
 }
-/* line 248, ../sass/components/_buttons.scss */
+/* line 249, ../sass/components/_buttons.scss */
 .fixed-action-btn ul a.btn-floating {
   opacity: 0;
 }
-/* line 253, ../sass/components/_buttons.scss */
+/* line 254, ../sass/components/_buttons.scss */
 .fixed-action-btn .fab-backdrop {
   position: absolute;
   top: 0;
@@ -6480,7 +6481,7 @@ button.btn-floating {
   transform: scale(0);
 }
 
-/* line 267, ../sass/components/_buttons.scss */
+/* line 268, ../sass/components/_buttons.scss */
 .btn-flat {
   box-shadow: none;
   background-color: transparent;
@@ -6488,42 +6489,42 @@ button.btn-floating {
   cursor: pointer;
   transition: background-color .2s;
 }
-/* line 274, ../sass/components/_buttons.scss */
+/* line 275, ../sass/components/_buttons.scss */
 .btn-flat:focus, .btn-flat:hover {
   box-shadow: none;
 }
-/* line 279, ../sass/components/_buttons.scss */
+/* line 280, ../sass/components/_buttons.scss */
 .btn-flat:focus {
   background-color: #007785;
 }
-/* line 283, ../sass/components/_buttons.scss */
+/* line 284, ../sass/components/_buttons.scss */
 .btn-flat.disabled {
   background-color: transparent !important;
   color: #b3b3b3 !important;
   cursor: default;
 }
 
-/* line 291, ../sass/components/_buttons.scss */
+/* line 292, ../sass/components/_buttons.scss */
 .btn-large {
   height: 54px;
   line-height: 54px;
 }
-/* line 296, ../sass/components/_buttons.scss */
+/* line 297, ../sass/components/_buttons.scss */
 .btn-large i {
   font-size: 1.6rem;
 }
 
-/* line 302, ../sass/components/_buttons.scss */
+/* line 303, ../sass/components/_buttons.scss */
 .btn-small {
   height: 24px;
   line-height: 22px;
 }
-/* line 307, ../sass/components/_buttons.scss */
+/* line 308, ../sass/components/_buttons.scss */
 .btn-small i {
   font-size: 20px;
 }
 
-/* line 313, ../sass/components/_buttons.scss */
+/* line 314, ../sass/components/_buttons.scss */
 .btn-block {
   display: block;
 }
@@ -9369,7 +9370,7 @@ input[type=range]:focus::-ms-fill-upper {
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 570px;
   perspective: 500px;
   transform-style: preserve-3d;
   transform-origin: 0% 50%;
@@ -9395,7 +9396,7 @@ input[type=range]:focus::-ms-fill-upper {
 .carousel.carousel-slider .carousel-item {
   width: 100%;
   height: 100%;
-  min-height: 500px;
+  min-height: 570px;
   position: absolute;
   top: 0;
   left: 0;
@@ -9413,7 +9414,7 @@ input[type=range]:focus::-ms-fill-upper {
 /* line 46, ../sass/components/_carousel.scss */
 .carousel .carousel-item {
   display: none;
-  width: 250px;
+  width: 285px;
   position: absolute;
   top: 0;
   left: 0;
@@ -9428,7 +9429,7 @@ input[type=range]:focus::-ms-fill-upper {
   text-align: center;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 10px;
   margin: 0;
 }
 /* line 69, ../sass/components/_carousel.scss */
@@ -9436,30 +9437,52 @@ input[type=range]:focus::-ms-fill-upper {
   display: inline-block;
   position: relative;
   cursor: pointer;
-  height: 8px;
-  width: 8px;
-  margin: 24px 4px;
-  background-color: rgba(255, 255, 255, 0.5);
+  height: 20px;
+  width: 20px;
+  margin: 6px;
+  background-color: #4A7700;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.14);
   transition: background-color .3s;
   border-radius: 50%;
 }
 /* line 70, ../sass/components/_carousel.scss */
 .carousel .indicators .indicator-item.active {
-  background-color: #fff;
+  background-color: #007785;
 }
-/* line 88, ../sass/components/_carousel.scss */
+/* line 89, ../sass/components/_carousel.scss */
 .carousel.scrolling .carousel-item .materialboxed,
 .carousel .carousel-item:not(.active) .materialboxed {
   pointer-events: none;
 }
 
-/* line 94, ../sass/components/_carousel.scss */
+/* line 96, ../sass/components/_carousel.scss */
 .carousel.paquetes {
-  height: 360px;
+  height: 500px;
 }
-
 /* line 98, ../sass/components/_carousel.scss */
-.carousel .carousel-item .item-locked {
+.carousel.paquetes .opacity-left,
+.carousel.paquetes .opacity-right {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 40px;
+}
+/* line 105, ../sass/components/_carousel.scss */
+.carousel.paquetes .opacity-left {
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+  left: 0px;
+}
+/* line 109, ../sass/components/_carousel.scss */
+.carousel.paquetes .opacity-right {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  right: 0px;
+}
+/* line 113, ../sass/components/_carousel.scss */
+.carousel.paquetes .carousel-item {
+  margin-bottom: 20px;
+}
+/* line 115, ../sass/components/_carousel.scss */
+.carousel.paquetes .carousel-item .item-locked {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -9467,8 +9490,8 @@ input[type=range]:focus::-ms-fill-upper {
   right: 0px;
   z-index: 2;
 }
-/* line 105, ../sass/components/_carousel.scss */
-.carousel .carousel-item.active .item-locked {
+/* line 122, ../sass/components/_carousel.scss */
+.carousel.paquetes .carousel-item.active .item-locked {
   display: none;
 }
 
@@ -10680,12 +10703,16 @@ header.nav-scroll nav .button-collapse i {
   height: 35px;
   line-height: 35px;
 }
-/* line 20, ../sass/components/_header.scss */
+/* line 19, ../sass/components/_header.scss */
+header.nav-scroll nav ul.nav-header {
+  margin-right: -10px;
+}
+/* line 21, ../sass/components/_header.scss */
 header.nav-scroll nav ul.nav-header a, header.nav-scroll nav ul.nav-header p {
   font-size: 14px;
   color: #fff;
 }
-/* line 23, ../sass/components/_header.scss */
+/* line 24, ../sass/components/_header.scss */
 header.nav-scroll nav ul.nav-header a:hover, header.nav-scroll nav ul.nav-header p:hover {
   background-color: #007785;
   color: #fff;
@@ -11145,7 +11172,7 @@ hr.line-xsmall {
 
 /* line 149, ../sass/components/_utilities.scss */
 .bg-dark-opacity-minor {
-  background-color: rgba(41, 41, 41, 0.3);
+  background-color: rgba(41, 41, 41, 0.6);
 }
 
 /* line 152, ../sass/components/_utilities.scss */
@@ -11277,7 +11304,7 @@ hr.line-xsmall {
 /* line 255, ../sass/components/_utilities.scss */
 .servicios .servicio-item {
   position: relative;
-  height: 200px;
+  height: 180px;
   overflow: hidden;
 }
 @media only screen and (max-width: 600px) {
