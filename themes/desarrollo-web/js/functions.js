@@ -54,7 +54,7 @@ var $=jQuery.noConflict();
 			var idSection = "#section-" + idOption; //Sección a la que se dirigirá
 			// console.log(idSection); 
 			$('html, body').animate({		
-				scrollTop: $(idSection).offset().top - 50
+				scrollTop: $(idSection).offset().top - 20
 			}, 1500);
 		});
 

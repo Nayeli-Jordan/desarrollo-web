@@ -855,3 +855,5 @@ var theme_path = "http:\/\/localhost:8888\/desarrollo-web\/wp-content\/themes\/d
 
 		</body>
 </html>
+
+También ofrecemos servicio de mantenimiento y actualización de tu sitio, es decir, una vez que se entrega el proyecto puedes despreocuparte por mantener al día tus contenidos como productos, imágenes o publicaciones.

@@ -13,6 +13,10 @@
 		<meta name="robots" content="index, follow" />
 		<meta name="googlebot" content="index, follow" />
 
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="<?php echo THEMEPATH; ?>images/favicon/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="<?php echo THEMEPATH; ?>images/favicon/favicon-16x16.png" sizes="16x16" />
+
 		<!-- Facebook, Twitter metas -->
 		<meta property="og:title" content="<?php bloginfo('name'); ?>" />
 		<meta property="og:type" content="website" />
@@ -42,7 +46,7 @@
 		<!--Import Google Icon Font-->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--Import materialize.css-->
-		<link type="text/css" rel="stylesheet" href="<?php echo THEMEPATH; ?>stylesheets/materialize.css" media="screen,projection" />
+		<link type="text/css" rel="stylesheet" href="<?php echo THEMEPATH; ?>stylesheets/materialize.css" media="screen,projection, print" />
 
 		<!-- Canonical URL -->
 		<link rel="canonical" href="<?php echo site_url(); ?>" />
@@ -63,7 +67,10 @@
 	<header class="js-header">
 		<nav>
 			<div class="nav-wrapper [ container ]">
-			<a href="<?php echo SITEURL ?>" class="brand-logo">Logo</a>
+			<a href="<?php echo SITEURL ?>" class="brand-logo">
+				<img class="responsive-img logo-initial" src="<?php echo THEMEPATH ?>images/identidad/logo-gris.png" alt="logo del sitio">
+				<img class="responsive-img logo-scroll hide" src="<?php echo THEMEPATH ?>images/identidad/logo-fondo.png" alt="logo del sitio">
+			</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="[ nav-header ] right hide-on-small-only">
 					<!-- <li>

@@ -3,12 +3,28 @@ header {
 	position: fixed;
 	width: 100%;
 	z-index: 10;
+	& nav{
+		.brand-logo {
+			padding: 3px 0;
+			max-height: 50px;
+			img {
+				max-height: 44px;
+			}
+		}
+	}
 	&.nav-scroll nav {
 		height: 35px;
 		line-height: 35px;
 		background-color: $primary-color-light;
 		border-bottom: none;
-		.brand-logo, .button-collapse { color: #fff; } //sólo si es texto sino quitar
+		.button-collapse { color: #fff; }		
+		.brand-logo {
+			img {
+				max-height: 29px;
+				&.logo-initial { display: none; }
+				&.logo-scroll { display: block!important; }
+			}
+		}
 		.button-collapse {
 			height: 35px;
 			i {

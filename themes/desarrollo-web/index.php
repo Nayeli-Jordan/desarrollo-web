@@ -258,6 +258,9 @@
 			<?php endif; ?>		
 
 		</div>
+		<div class="[ center ][ margin-top ]">
+			<a class="link-contacto waves-effect waves-light btn" id="contacto" itemprop="actionOption">Cotiza tu proyecto</a>			
+		</div>
 		<?php
 			$seccion_args = array(
 				'post_type' => 'seccion',
@@ -281,15 +284,13 @@
 				<div class="col s12 m10 offset-m1 l8 offset-l2 [ margin-bottom ]">
 					<?php the_content(); ?>
 				</div>
-			</div>
+			</div>		
 		<?php 
 			$i ++;
 			endwhile;
 			wp_reset_postdata();
 			endif; ?>
-		<div class="[ center ]">
-			<a class="link-contacto waves-effect waves-light btn" id="contacto" itemprop="actionOption">Cotiza tu proyecto</a>			
-		</div>
+
 	</section>
 
 	<?php
@@ -389,9 +390,9 @@
 			?>
 				<div class="col s12 sm6 m4 l3 [ text-center ][ margin-bottom ][ wow bounceInRight ]">					
 					<?php if( $icon != "" ) { ?>
-						<i class="material-icons"><?php echo $icon; ?></i>
+						<i class="material-icons [ wow fadeIn ]" data-wow-delay="0.5s"><?php echo $icon; ?></i>
 					<?php } else { ?>	
-						<i class="material-icons">grade</i>
+						<i class="material-icons [ wow fadeIn ]" data-wow-delay="0.5s">grade</i>
 					<?php } ?>	
 					<h4 class="margin-bottom-xsmall"><?php the_title(); ?></h4>
 					<hr class="line-difumined-large">

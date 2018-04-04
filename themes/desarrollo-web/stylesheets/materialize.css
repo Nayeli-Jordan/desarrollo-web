@@ -9429,7 +9429,7 @@ input[type=range]:focus::-ms-fill-upper {
   text-align: center;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: -10px;
   margin: 0;
 }
 /* line 69, ../sass/components/_carousel.scss */
@@ -9457,7 +9457,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* line 96, ../sass/components/_carousel.scss */
 .carousel.paquetes {
-  height: 500px;
+  height: 480px;
 }
 /* line 98, ../sass/components/_carousel.scss */
 .carousel.paquetes .opacity-left,
@@ -9479,7 +9479,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 /* line 113, ../sass/components/_carousel.scss */
 .carousel.paquetes .carousel-item {
-  margin-bottom: 20px;
+  margin-top: -20px;
 }
 /* line 115, ../sass/components/_carousel.scss */
 .carousel.paquetes .carousel-item .item-locked {
@@ -10683,36 +10683,57 @@ header {
   width: 100%;
   z-index: 10;
 }
-/* line 6, ../sass/components/_header.scss */
+/* line 7, ../sass/components/_header.scss */
+header nav .brand-logo {
+  padding: 3px 0;
+  max-height: 50px;
+}
+/* line 10, ../sass/components/_header.scss */
+header nav .brand-logo img {
+  max-height: 44px;
+}
+/* line 15, ../sass/components/_header.scss */
 header.nav-scroll nav {
   height: 35px;
   line-height: 35px;
   background-color: #009AAC;
   border-bottom: none;
 }
-/* line 11, ../sass/components/_header.scss */
-header.nav-scroll nav .brand-logo, header.nav-scroll nav .button-collapse {
+/* line 20, ../sass/components/_header.scss */
+header.nav-scroll nav .button-collapse {
   color: #fff;
 }
-/* line 12, ../sass/components/_header.scss */
+/* line 22, ../sass/components/_header.scss */
+header.nav-scroll nav .brand-logo img {
+  max-height: 29px;
+}
+/* line 24, ../sass/components/_header.scss */
+header.nav-scroll nav .brand-logo img.logo-initial {
+  display: none;
+}
+/* line 25, ../sass/components/_header.scss */
+header.nav-scroll nav .brand-logo img.logo-scroll {
+  display: block !important;
+}
+/* line 28, ../sass/components/_header.scss */
 header.nav-scroll nav .button-collapse {
   height: 35px;
 }
-/* line 14, ../sass/components/_header.scss */
+/* line 30, ../sass/components/_header.scss */
 header.nav-scroll nav .button-collapse i {
   height: 35px;
   line-height: 35px;
 }
-/* line 19, ../sass/components/_header.scss */
+/* line 35, ../sass/components/_header.scss */
 header.nav-scroll nav ul.nav-header {
   margin-right: -10px;
 }
-/* line 21, ../sass/components/_header.scss */
+/* line 37, ../sass/components/_header.scss */
 header.nav-scroll nav ul.nav-header a, header.nav-scroll nav ul.nav-header p {
   font-size: 14px;
   color: #fff;
 }
-/* line 24, ../sass/components/_header.scss */
+/* line 40, ../sass/components/_header.scss */
 header.nav-scroll nav ul.nav-header a:hover, header.nav-scroll nav ul.nav-header p:hover {
   background-color: #007785;
   color: #fff;
