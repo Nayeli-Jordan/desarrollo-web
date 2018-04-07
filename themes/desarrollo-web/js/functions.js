@@ -13,7 +13,9 @@ var $=jQuery.noConflict();
 			document.getElementById("date").innerHTML = new Date().getFullYear();
 			navScroll();
 			footerBottom();
-			$(".button-collapse").sideNav();
+			$(".button-collapse").sideNav({
+				closeOnClick: true
+			});
 			$('select').material_select();
 			$('.carousel').carousel({
 				shift: 35,
@@ -21,13 +23,12 @@ var $=jQuery.noConflict();
 				indicators: true
 			});
 			$('.modal').modal();
+			$('.materialboxed').materialbox();
 			// autoplay();   
 			// function autoplay() {
 			// 	$('.servicios.carousel').carousel('next');
 			// 	setTimeout(autoplay, 8000);
 			// } 
-
-
 		});
  
 		$(window).on('resize', function(){
@@ -42,9 +43,12 @@ var $=jQuery.noConflict();
 
 		});
  
-		// if( parseInt( isHome ) ){
- 
-		// } 
+		if( parseInt( isHome ) ){
+			$(document).ready(function() {
+				//Permite el scroll si se está en home
+				$("a.item-menu").removeAttr("href");
+			});
+		} 
 
 		//Scroll menú
 		$(".item-menu, #intro, .link-contacto").click(function() {

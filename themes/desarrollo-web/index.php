@@ -24,7 +24,7 @@
 		$url = get_post_meta( $post_id, 'seccion_url', true );
 		$btn = get_post_meta( $post_id, 'seccion_btn', true );
 	?>
-		<section id="section-intro" class="[ relative ][ bg-image ][ margin-top-50 ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+		<section class="[ relative ][ bg-image ][ margin-top-50 ]" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
 			<div class="[ bg-dark-opacity-minor ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
 			<div class="[ container ][ relative ][ padding-top-bottom-section ][ frase ][ text-center ]">
 				<?php the_content(); ?>
@@ -195,69 +195,9 @@
 			<p>Falta agregar información</p>	
 		<?php endif; ?>
 
-		<div class="carousel [ paquetes ]">
-			<div class="opacity-left"></div>
-			<div class="opacity-right"></div>
+		<!-- carousel paquetes -->
+		<?php include (TEMPLATEPATH . '/sections/paquetes.php'); ?>
 
-			<?php
-				$paquete_args = array(
-					'post_type' => 'paquete',
-					'posts_per_page' => -1,
-					'order'=> 'ASC',
-				);
-				$paquete_query = new WP_Query( $paquete_args );
-				$i = 1;
-				if ( $paquete_query->have_posts() ) :				
-				while ( $paquete_query->have_posts() ) : $paquete_query->the_post();
-
-				$custom_fields = get_post_custom();
-				$post_id = get_the_ID();
-				$precio = get_post_meta( $post_id, 'paquete_precio', true );
-				$tiempo = get_post_meta( $post_id, 'paquete_tiempo', true );
-			?>
-				<div class="carousel-item <?php if ($i == 1){ ?> active <?php } ?>">
-					<div class="[ card ]">
-						<div class="[ item-locked ]"></div>
-						<div class="triangulo-top-right absolute right-0 [ wow slideInDown ]" data-wow-delay="0.3s"></div>		
-						<div class="triangulo-top-left absolute left-0 [ wow slideInDown ]"></div>
-						<div class="[ card-content ][ padding-top-bottom-xlarge ]">
-							<a href="<?php the_permalink(); ?>">
-								<h3 class="[ color-primary ][ text-center ]"><?php the_title(); ?></h3>
-							</a>							
-							<hr class="line-difumined-small">
-							<div class="[ info-paquete ]">
-								<?php the_content(); ?>
-							</div>							
-							<?php if( $precio != "" ) { ?>
-								<hr class="line-difumined-large">
-								<p class="[ text-center ][ color-primary-dark ][ strong ]">	
-									Desde <?php echo $precio; ?> MXN
-								</p>
-							<?php } ?>								
-							<hr class="line-difumined-large">
-							<!-- opciones del paquete -->
-							<?php echo custom_taxonomies_opciones(); ?>
-							<?php if( $tiempo != "" ) { ?>
-								<hr class="line-difumined-large">
-								<small class="block [ text-center ][ color-primary-dark ][ strong ]">	
-									Entrega: <?php echo $tiempo; ?>
-								</small>
-							<?php } ?>
-						</div>
-						<div class="triangulo-bottom-right absolute right-0 bottom-0 [ wow slideInUp ]"></div>
-					</div>
-				</div>
-
-			<?php
-				$i ++;				
-				endwhile;
-				wp_reset_postdata();
-				else:
-			?>
-				<p>Falta agregar paquetes</p>	
-			<?php endif; ?>		
-
-		</div>
 		<div class="[ center ][ margin-top ]">
 			<a class="link-contacto waves-effect waves-light btn" id="contacto" itemprop="actionOption">Cotiza tu proyecto</a>			
 		</div>
@@ -281,7 +221,7 @@
 			while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
 		?>
 			<div class="row text-center margin-top">
-				<div class="col s12 m10 offset-m1 l8 offset-l2 [ margin-bottom ]">
+				<div class="col s12 l10 offset-l1 [ margin-bottom ]">
 					<?php the_content(); ?>
 				</div>
 			</div>		
@@ -334,10 +274,92 @@
 	?>
 		<p>Falta agregar información</p>	
 	<?php endif; ?>
-	
+
+	<section id="section-proyectos" class="bg-gray [ padding-top-bottom-large ]">
+		<div class="[ container ]">
+			<?php
+				$seccion_args = array(
+					'post_type' => 'seccion',
+					'posts_per_page' => -1,
+					'order'=> 'ASC',
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'posicion',
+							'field'    => 'slug', //term_id, slug
+							'terms'    => 'proyectos'
+						),
+					)
+				);
+				$seccion_query = new WP_Query( $seccion_args );
+				if ( $seccion_query->have_posts() ) :
+				$i = 1;
+				while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
+			?>
+				<h2 class="[ text-center ][ color-primary ]"><?php the_title(); ?></h2>
+				<div class="row text-center">
+					<div class="col s12 m10 offset-m1 l8 offset-l2 [ margin-bottom ]">
+						<?php the_content(); ?>
+					</div>
+				</div>
+			<?php 
+				$i ++;
+				endwhile;
+				wp_reset_postdata();
+				else:
+			?>
+				<p>Falta agregar información</p>	
+			<?php endif; ?>
+
+			<div class="row">
+				<div class=" [ col s12 m10 xl8 offset-m1 offset-xl2 ]">
+					<?php
+						$proyecto_args = array(
+							'post_type' => 'proyecto',
+							'posts_per_page' => 2,
+							'order'=> 'ASC',
+						);
+						$proyecto_query = new WP_Query( $proyecto_args );
+						$i = 1;
+						if ( $proyecto_query->have_posts() ) :				
+						while ( $proyecto_query->have_posts() ) : $proyecto_query->the_post();
+
+						$custom_fields = get_post_custom();
+						$post_id = get_the_ID();
+						$url = get_post_meta( $post_id, 'proyecto_url', true );
+					?>
+						<div class="col s12 sm6 m6  <?php if ($i == 3){ ?> hide-sm-and-down <?php } ?> [ margin-bottom ][ wow fadeIn ]">	<!-- m4 -->			
+							<div class="[ container-proyect ] margin-bottom-xsmall">
+								<img class="responsive-img materialboxed" <?php if ( wp_is_mobile() ){ ?> src="<?php the_post_thumbnail_url('medium'); ?>" <?php } else { ?> src="<?php the_post_thumbnail_url('full'); ?>" <?php } ?> alt="imagen del proyecto">
+								<div class="[ opacity-proyect ][ wow fadeIn ]"></div>
+							</div>						
+							<!-- servicios del proyecto -->
+							<?php echo custom_taxonomies_servicios(); ?>
+							<?php if( $url != "" ) { ?>
+								<div class="[ text-center ][ margin-top-small ] hide">
+									<a class="waves-effect waves-light btn btn-small" href="<?php echo $url; ?>" target="_blank"><small>Ver sitio</small></a>	
+								</div>							
+							<?php } ?>
+						</div>
+					
+					<?php 
+						$i ++;				
+						endwhile;
+						wp_reset_postdata();
+						else:
+					?>
+						<p>Falta agregar proyectos</p>	
+					<?php endif; ?>					 
+				</div>
+			</div>	
+		</div>
+	</section>
+
+	<!-- Testimoniales -->
+	<?php //include (TEMPLATEPATH . '/sections/testimoniales.php'); ?>
+
 	<section id="section-beneficios" class="container [ padding-top-bottom-section ]">
 
-				<?php
+			<?php
 			$seccion_args = array(
 				'post_type' => 'seccion',
 				'posts_per_page' => -1,
@@ -388,7 +410,7 @@
 				$post_id = get_the_ID();
 				$icon = get_post_meta( $post_id, 'beneficio_icon', true );
 			?>
-				<div class="col s12 sm6 m4 l3 [ text-center ][ margin-bottom ][ wow bounceInRight ]">					
+				<div class="col s12 sm6 m4 l3 <?php if ($i == 9){ ?> hide-sm-and-down hide-l-and-up <?php } ?> [ text-center ][ margin-bottom ][ wow bounceInRight ]">					
 					<?php if( $icon != "" ) { ?>
 						<i class="material-icons [ wow fadeIn ]" data-wow-delay="0.5s"><?php echo $icon; ?></i>
 					<?php } else { ?>	
@@ -398,9 +420,7 @@
 					<hr class="line-difumined-large">
 					<small><?php the_content(); ?></small>
 				</div>
-			<?php if ($i % 4 == 1){ ?>
-
-			<?php } ?>
+			
 			<?php 
 				$i ++;				
 				endwhile;

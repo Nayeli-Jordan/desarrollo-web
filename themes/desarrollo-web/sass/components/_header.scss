@@ -1,3 +1,8 @@
+//Cambios en estilos default de materialize para #menu-main-menu
+//Un sólo navegador para móvil y desktop
+//Clases y configuración en functions.php / WPDocs_Walker_Nav_Menu
+//Estilos modificados en header y sideNav (media para móvil)
+
 header {
 	min-height: 40px; //to do modificar por altura final igual en main-body
 	position: fixed;
@@ -11,32 +16,42 @@ header {
 				max-height: 44px;
 			}
 		}
+		#menu-main-menu {
+			margin-right: -10px;
+			float: right !important;
+			@media #{$medium-and-up}{
+				transform: translateX(0%)!important;
+			}
+		}
 	}
 	&.nav-scroll nav {
-		height: 35px;
-		line-height: 35px;
+		height: 40px;
+		line-height: 40px;
 		background-color: $primary-color-light;
 		border-bottom: none;
 		.button-collapse { color: #fff; }		
 		.brand-logo {
 			img {
-				max-height: 29px;
+				max-height: 34px;
 				&.logo-initial { display: none; }
 				&.logo-scroll { display: block!important; }
 			}
 		}
 		.button-collapse {
-			height: 35px;
+			height: 40px;
 			i {
-				height: 35px;
-				line-height: 35px;
+				height: 40px;
+				line-height: 40px;
 			}
 		}
-		ul.nav-header { //desktop
+		ul.nav-header, //clase default de materialize para menú desktop
+		ul#menu-main-menu { //desktop
 			margin-right:-10px; 
 			a, p {
 				font-size: 14px;
-				color: #fff;
+				@media #{$medium-and-up}{
+					color: #fff;
+				}
 				&:hover {
 					background-color: $primary-color;
 					color: #fff;
@@ -44,4 +59,12 @@ header {
 			}
 		}
 	}
+}
+
+#block-title {
+	margin-top: 50px;
+	margin-bottom: 40px;
+	padding-top: 35px;
+	padding-bottom: 35px;
+	background-color: $primary-color-light;
 }

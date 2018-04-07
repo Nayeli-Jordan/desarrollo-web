@@ -130,4 +130,97 @@ add_action('init', function(){
 	);
 	register_post_type( 'beneficio', $args );
 
+	// Proyecto
+	$labels = array(
+		'name'          => 'Proyectos',
+		'singular_name' => 'Proyecto',
+		'add_new'       => 'Nuevo proyecto',
+		'add_new_item'  => 'Nuevo proyecto',
+		'edit_item'     => 'Editar proyecto',
+		'new_item'      => 'Nuevo proyecto',
+		'all_items'     => 'Todo',
+		'view_item'     => 'Ver proyecto',
+		'search_items'  => 'Buscar proyecto',
+		'not_found'     => 'No hay proyectos.',
+		'menu_name'     => 'Proyectos'
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'proyecto' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 6,
+		'supports'           => array( 'title', 'editor', 'thumbnail' )
+	);
+	register_post_type( 'proyecto', $args );
+
+	// Testimonial
+	$labels = array(
+		'name'          => 'Testimoniales',
+		'singular_name' => 'Testimonial',
+		'add_new'       => 'Nuevo testimonial',
+		'add_new_item'  => 'Nuevo testimonial',
+		'edit_item'     => 'Editar testimonial',
+		'new_item'      => 'Nuevo testimonial',
+		'all_items'     => 'Todo',
+		'view_item'     => 'Ver testimonial',
+		'search_items'  => 'Buscar testimonial',
+		'not_found'     => 'No hay testimoniales.',
+		'menu_name'     => 'Testimoniales'
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'testimonial' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 6,
+		'supports'           => array( 'title', 'editor' )
+	);
+	register_post_type( 'testimonial', $args );
+
+	// faq´s
+	$labels = array(
+		'name'          => 'Faq´s',
+		'singular_name' => 'Faq',
+		'add_new'       => 'Nuevo faq',
+		'add_new_item'  => 'Nuevo faq',
+		'edit_item'     => 'Editar faq',
+		'new_item'      => 'Nuevo faq',
+		'all_items'     => 'Todo',
+		'view_item'     => 'Ver faq',
+		'search_items'  => 'Buscar faq',
+		'not_found'     => 'No hay faq´s.',
+		'menu_name'     => 'Faq´s'
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'faq' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 6,
+		'supports'           => array( 'title', 'editor' )
+	);
+	register_post_type( 'faq', $args );
+
 });

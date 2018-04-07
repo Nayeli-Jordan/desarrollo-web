@@ -12,6 +12,7 @@ define( 'SITEURL', get_site_url() . '/' );
 	#SNIPPETS
 \*------------------------------------*/
 //require_once( 'inc/pages.php' );
+require_once( 'inc/pages.php' );
 require_once( 'inc/post-types.php' );
 require_once( 'inc/taxonomies.php' );
 
@@ -32,7 +33,7 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_localize_script( 'dw_functions', 'siteUrl', SITEURL );
 	wp_localize_script( 'dw_functions', 'theme_path', THEMEPATH );
 	
-	// wp_localize_script( 'dw_functions', 'isHome', (string)is_front_page() );
+	wp_localize_script( 'dw_functions', 'isHome', (string)is_front_page() );
 	// wp_localize_script( 'dw_functions', 'isSingular', (string)is_singular() );
 	
 	// $is_home = is_front_page() ? "1" : "0";
@@ -45,6 +46,10 @@ add_action( 'wp_enqueue_scripts', function(){
 	// wp_localize_script( 'ri_functions', 'isAuthor', $is_author );
  
 });
+
+/**
+* Configuraciones WP
+*/
 
 //Habilitar thumbnail en post
 add_theme_support( 'post-thumbnails' ); 
@@ -62,7 +67,10 @@ function custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
-//CUSTOM POST TYPE//
+/**
+* CUSTOM POST TYPE
+*/
+
 //seccion
 add_action( 'add_meta_boxes', 'seccion_custom_metabox' );
 
@@ -155,7 +163,7 @@ function paquete_save_metas( $idpaquete, $paquete ){
 add_action( 'add_meta_boxes', 'beneficio_custom_metabox' );
 
 function beneficio_custom_metabox(){
-	add_meta_box( 'beneficio_meta', 'Información para banner', 'display_beneficio_atributos', 'beneficio', 'advanced', 'default');
+	add_meta_box( 'beneficio_meta', 'Información beneficio', 'display_beneficio_atributos', 'beneficio', 'advanced', 'default');
 }
 
 function display_beneficio_atributos( $beneficio ){
@@ -193,8 +201,46 @@ function beneficio_save_metas( $idbeneficio, $beneficio ){
 	}
 }
 
+//proyecto
+add_action( 'add_meta_boxes', 'proyecto_custom_metabox' );
 
-// Obtener la opciones (taxonomía) de un paquete con estilo en cada una 
+function proyecto_custom_metabox(){
+	add_meta_box( 'proyecto_meta', 'Información proyecto', 'display_proyecto_atributos', 'proyecto', 'advanced', 'default');
+}
+
+function display_proyecto_atributos( $proyecto ){
+	$url = esc_html( get_post_meta( $proyecto->ID, 'proyecto_url', true ) );
+?>
+
+<table style="width:100%; text-align: left;">
+	<tr>
+		<th style="padding-bottom:10px">
+			<label>URL Proyecto: (Deja vacio si no deseas poner url)</label></br>
+			<input style="width:100%" type="text" name="proyecto_url" value="<?php echo $url; ?>">
+		</th>
+	</tr>
+</table>
+<?php
+
+}
+
+add_action( 'save_post', 'proyecto_save_metas', 10, 2 );
+function proyecto_save_metas( $idproyecto, $proyecto ){
+	//Comprobamos que es del tipo que nos interesa
+	if ( $proyecto->post_type == 'proyecto' ){
+	//Guardamos los datos que vienen en el POST
+		if ( isset( $_POST['proyecto_url'] ) ){
+			update_post_meta( $idproyecto, 'proyecto_url', $_POST['proyecto_url'] );
+		}
+	}
+}
+
+
+/**
+* Taxonomía
+*/
+
+// Obtener las opciones (taxonomía) de un paquete con estilo en cada una 
 // Lo siguiente funciona pero sin estilo (todo corrido)
 // $terms = get_the_terms( $post->ID, 'opciones' ); 
 // foreach($terms as $term) {
@@ -235,5 +281,176 @@ function custom_taxonomies_opciones() {
         }
     }
     return implode( '', $out );
+}
+
+// Obtener los servicios (taxonomía) de cada proyecto 
+/**
+ * Get taxonomies terms links.
+ *
+ * @see get_object_taxonomies()
+ */
+function custom_taxonomies_servicios() {
+    // Get post by post ID.
+    if ( ! $post = get_post() ) {
+        return '';
+    }
+ 
+    // Get post type by post.
+    $post_type = $post->post_type;
+ 
+    // Get post type taxonomies.
+    $taxonomies = get_object_taxonomies( $post_type, 'servicios' );
+ 
+    $out = array();
+ 
+    foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+ 
+        // Get the terms related to post.
+        $terms = get_the_terms( $post->ID, $taxonomy_slug );
+ 
+        if ( ! empty( $terms ) ) {
+            $out[] = "<p>";
+            foreach ( $terms as $term ) {
+                $out[] = sprintf( '<small>✓%1$s </small>',
+                    esc_html( $term->name )
+                );
+            }
+            $out[] = "\n</p>\n";
+        }
+    }
+    return implode( '', $out );
+}
+
+
+/**
+* Optimización
+*/
+
+// REMOVE WP EMOJI
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+
+/**
+* SEO y Analitics
+**/
+
+//Código Analitics
+function add_google_analytics() {
+    echo '<script src="https://www.google-analytics.com/ga.js" type="text/javascript"></script>';
+    echo '<script type="text/javascript">';
+    echo 'var pageTracker = _gat._getTracker("UA-117075138-1");';
+    echo 'pageTracker._trackPageview();';
+    echo '</script>';
+}
+add_action('wp_footer', 'add_google_analytics');
+
+/* Aplaza el análisis de JavaScript para una carga más rápida */
+if(!is_admin()) {
+    // Move all JS from header to footer
+    remove_action('wp_head', 'wp_print_scripts');
+    remove_action('wp_head', 'wp_print_head_scripts', 9);
+    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+    add_action('wp_footer', 'wp_print_scripts', 5);
+    add_action('wp_footer', 'wp_enqueue_scripts', 5);
+    add_action('wp_footer', 'wp_print_head_scripts', 5);
+}
+
+
+add_filter( 'nav_menu_link_attributes', 'wpse121123_contact_menu_atts', 10, 3 );
+function wpse121123_contact_menu_atts( $atts, $item, $args )
+{
+  // The ID of the target menu item
+  $menu_target = 123;
+
+  // inspect $item
+  if ($item->ID == $menu_target) {
+    $atts['data-toggle'] = 'modal';
+  }
+  return $atts;
+}
+
+/**
+ * Custom walker class.
+ */
+class WPDocs_Walker_Nav_Menu extends Walker_Nav_Menu {
+ 
+    /**
+     * Starts the list before the elements are added.
+     *
+     * Adds classes to the unordered list sub-menus.
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param int    $depth  Depth of menu item. Used for padding.
+     * @param array  $args   An array of arguments. @see wp_nav_menu()
+     */
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+        // Depth-dependent classes.
+        $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
+        $display_depth = ( $depth + 1); // because it counts the first submenu as 0
+        $classes = array(
+            'sub-menu',
+            ( $display_depth % 2  ? 'menu-odd' : 'menu-even' ),
+            ( $display_depth >=2 ? 'sub-sub-menu' : '' ),
+            'menu-depth-' . $display_depth
+        );
+        $class_names = implode( ' ', $classes );
+ 
+        // Build HTML for output.
+        $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
+    }
+ 
+    /**
+     * Start the element output.
+     *
+     * Adds main/sub-classes to the list items and links.
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param object $item   Menu item data object.
+     * @param int    $depth  Depth of menu item. Used for padding.
+     * @param array  $args   An array of arguments. @see wp_nav_menu()
+     * @param int    $id     Current item ID.
+     */
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+        global $wp_query;
+        $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+ 
+        // Depth-dependent classes.
+        $depth_classes = array(
+            ( $depth == 0 ? 'main-menu-item' : 'sub-menu-item' ),
+            ( $depth >=2 ? 'sub-sub-menu-item' : '' ),
+            ( $depth % 2 ? 'menu-item-odd' : 'menu-item-even' ),
+            'menu-item-depth-' . $depth
+        );
+        $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
+ 
+        // Passed classes.
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+ 
+        // Build HTML.
+        $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
+ 
+        // Link attributes.
+        $attributes  = ! empty( $item->attr_title ) ? ' id="'  . esc_attr( $item->attr_title ) .'"' : '';
+        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+        $attributes .= ' class="' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
+ 
+        // Build HTML output and pass through the proper filter.
+        $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+            $args->before,
+            $attributes,
+            $args->link_before,
+            apply_filters( 'the_title', $item->title, $item->ID ),
+            $args->link_after,
+            $args->after
+        );
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
 }
 

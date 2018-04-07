@@ -31,7 +31,7 @@ function custom_taxonomies_callback(){
 		register_taxonomy( 'posicion', 'categoria', $args );
 	}
 
-	// Categoria posicion sección
+	// Categoria opciónes del plan
 	if( ! taxonomy_exists('opciones')){
 
 		$labels = array(
@@ -56,6 +56,32 @@ function custom_taxonomies_callback(){
 
 		register_taxonomy( 'opciones', 'paquete', $args );
 	}	
+
+	// Categoria servicios del proyecto
+	if( ! taxonomy_exists('servicio')){
+
+		$labels = array(
+			'name'              => 'Servicio',
+			'singular_name'     => 'Servicio',
+			'search_items'      => 'Buscar',
+			'all_items'         => 'Todos',
+			'edit_item'         => 'Editar servicio',
+			'update_item'       => 'Actualizar servicio',
+			'add_new_item'      => 'Nueva servicio',
+			'menu_name'         => 'Servicio paquete'
+		);
+		$args = array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'servicio' ),
+		);
+
+		register_taxonomy( 'servicio', 'proyecto', $args );
+	}		
 
 
 }
