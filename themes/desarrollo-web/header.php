@@ -94,9 +94,6 @@
 				    'walker' => new WPDocs_Walker_Nav_Menu()
 				) );
 				 ?>
-				<!-- <ul class="side-nav">
-					<?php //include (TEMPLATEPATH . '/navigation/main-menu.php'); ?>
-				</ul> -->
 			</div>
 		</nav>
 

@@ -359,20 +359,6 @@ if(!is_admin()) {
     add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 
-
-add_filter( 'nav_menu_link_attributes', 'wpse121123_contact_menu_atts', 10, 3 );
-function wpse121123_contact_menu_atts( $atts, $item, $args )
-{
-  // The ID of the target menu item
-  $menu_target = 123;
-
-  // inspect $item
-  if ($item->ID == $menu_target) {
-    $atts['data-toggle'] = 'modal';
-  }
-  return $atts;
-}
-
 /**
  * Custom walker class.
  */

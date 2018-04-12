@@ -31,7 +31,7 @@
 				<?php if( $url != "" && $btn != "" ) { ?>
 					<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ]" href="<?php echo $url; ?>"><?php echo $btn; ?></a>
 				<?php } else if( $url == "" ) { ?>	
-					<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ] item-menu" id="contacto"><?php echo $btn; ?></a>
+					<a class="waves-effect waves-light btn btn-light [ center ][ margin-top-xlarge ] link-contacto" id="contacto"><?php echo $btn; ?></a>
 				<?php } ?>				
 			</div>
 		</section>

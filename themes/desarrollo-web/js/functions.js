@@ -46,12 +46,12 @@ var $=jQuery.noConflict();
 		if( parseInt( isHome ) ){
 			$(document).ready(function() {
 				//Permite el scroll si se está en home
-				$("a.item-menu").removeAttr("href");
+				$(".item-scroll a").removeAttr("href");
 			});
 		} 
 
 		//Scroll menú
-		$(".item-menu, #intro, .link-contacto").click(function() {
+		$(".item-scroll a, #intro, .link-contacto").click(function() {
 			//buttonMenuScroll();
 			var idOption = $(this).attr('id'); //Opción del menú
 			// console.log(idOption);
