@@ -311,45 +311,43 @@
 			<?php endif; ?>
 
 			<div class="row">
-				<div class=" [ col s12 m10 xl8 offset-m1 offset-xl2 ]">
-					<?php
-						$proyecto_args = array(
-							'post_type' => 'proyecto',
-							'posts_per_page' => 2,
-							'order'=> 'ASC',
-						);
-						$proyecto_query = new WP_Query( $proyecto_args );
-						$i = 1;
-						if ( $proyecto_query->have_posts() ) :				
-						while ( $proyecto_query->have_posts() ) : $proyecto_query->the_post();
+				<?php
+					$proyecto_args = array(
+						'post_type' => 'proyecto',
+						'posts_per_page' => 3,
+						'order'=> 'ASC',
+					);
+					$proyecto_query = new WP_Query( $proyecto_args );
+					$i = 1;
+					if ( $proyecto_query->have_posts() ) :				
+					while ( $proyecto_query->have_posts() ) : $proyecto_query->the_post();
 
-						$custom_fields = get_post_custom();
-						$post_id = get_the_ID();
-						$url = get_post_meta( $post_id, 'proyecto_url', true );
-					?>
-						<div class="col s12 sm6 m6  <?php if ($i == 3){ ?> hide-sm-and-down <?php } ?> [ margin-bottom ][ wow fadeIn ]">	<!-- m4 -->			
-							<div class="[ container-proyect ] margin-bottom-xsmall">
-								<img class="responsive-img materialboxed" <?php if ( wp_is_mobile() ){ ?> src="<?php the_post_thumbnail_url('medium'); ?>" <?php } else { ?> src="<?php the_post_thumbnail_url('full'); ?>" <?php } ?> alt="imagen del proyecto">
-								<div class="[ opacity-proyect ][ wow fadeIn ]"></div>
-							</div>						
-							<!-- servicios del proyecto -->
-							<?php echo custom_taxonomies_servicios(); ?>
-							<?php if( $url != "" ) { ?>
-								<div class="[ text-center ][ margin-top-small ] hide">
-									<a class="waves-effect waves-light btn btn-small" href="<?php echo $url; ?>" target="_blank"><small>Ver sitio</small></a>	
-								</div>							
-							<?php } ?>
-						</div>
-					
-					<?php 
-						$i ++;				
-						endwhile;
-						wp_reset_postdata();
-						else:
-					?>
-						<p>Falta agregar proyectos</p>	
-					<?php endif; ?>					 
-				</div>
+					$custom_fields = get_post_custom();
+					$post_id = get_the_ID();
+					$url = get_post_meta( $post_id, 'proyecto_url', true );
+				?>
+					<div class="col s12 sm6 m4  <?php if ($i == 3){ ?> hide-sm-and-down <?php } ?> [ margin-bottom ][ wow fadeIn ]">	<!-- m4 -->			
+						<div class="[ container-proyect ] margin-bottom-xsmall">
+							<img class="responsive-img materialboxed" <?php if ( wp_is_mobile() ){ ?> src="<?php the_post_thumbnail_url('medium'); ?>" <?php } else { ?> src="<?php the_post_thumbnail_url('full'); ?>" <?php } ?> alt="imagen del proyecto">
+							<div class="[ opacity-proyect ][ wow fadeIn ]"></div>
+						</div>						
+						<!-- servicios del proyecto -->
+						<?php echo custom_taxonomies_servicios(); ?>
+						<?php if( $url != "" ) { ?>
+							<div class="[ text-center ][ margin-top-small ] hide">
+								<a class="waves-effect waves-light btn btn-small" href="<?php echo $url; ?>" target="_blank"><small>Ver sitio</small></a>	
+							</div>							
+						<?php } ?>
+					</div>
+				
+				<?php 
+					$i ++;				
+					endwhile;
+					wp_reset_postdata();
+					else:
+				?>
+					<p>Falta agregar proyectos</p>	
+				<?php endif; ?>	
 			</div>	
 		</div>
 	</section>

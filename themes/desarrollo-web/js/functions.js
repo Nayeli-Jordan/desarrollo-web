@@ -63,7 +63,7 @@ var $=jQuery.noConflict();
 		});
 
 		//btn return
-		$("return-top").click(function() {
+		$(".return-top").click(function() {
 			$('html, body').animate({		
 				scrollTop: $("#section-intro").offset().top
 			}, 1500);
@@ -90,7 +90,7 @@ function getFooterHeight(){
  * Estilo navegador fijo
  */
 function navScroll(){
-	$('footer').outerHeight();if ($(window).scrollTop() > 40 ) {
+	if ($(window).scrollTop() > 40 ) {
 		$('header').addClass('nav-scroll');
 	} else {
 		$('header').removeClass('nav-scroll');
