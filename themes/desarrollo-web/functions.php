@@ -51,6 +51,16 @@ add_action( 'wp_enqueue_scripts', function(){
 * Configuraciones WP
 */
 
+// Agregar css y js al administrador
+function load_custom_files_wp_admin() {
+        wp_register_style( 'bct_wp_admin_css', THEMEPATH . '/admin/admin-style.css', false, '1.0.0' );
+        wp_enqueue_style( 'bct_wp_admin_css' );
+
+        wp_register_script( 'bct_wp_admin_js', THEMEPATH . 'admin/admin-script.js', false, '1.0.0' );
+        wp_enqueue_script( 'bct_wp_admin_js' );        
+}
+add_action( 'admin_enqueue_scripts', 'load_custom_files_wp_admin' );
+
 //Habilitar thumbnail en post
 add_theme_support( 'post-thumbnails' ); 
 
@@ -209,7 +219,8 @@ function proyecto_custom_metabox(){
 }
 
 function display_proyecto_atributos( $proyecto ){
-	$url = esc_html( get_post_meta( $proyecto->ID, 'proyecto_url', true ) );
+	$url       = esc_html( get_post_meta( $proyecto->ID, 'proyecto_url', true ) );
+    $image     = esc_html( get_post_meta( $proyecto->ID, 'proyecto_image', true ) );    
 ?>
 
 <table style="width:100%; text-align: left;">
@@ -219,6 +230,18 @@ function display_proyecto_atributos( $proyecto ){
 			<input style="width:100%" type="text" name="proyecto_url" value="<?php echo $url; ?>">
 		</th>
 	</tr>
+    <tr>
+        <th>
+            <label for="proyecto_image">Imagen proyecto</label><br>
+            <input type="text" name="proyecto_image" id="proyecto_image" class="meta-image regular-text" value="<?php echo $image; ?>">
+            <input type="button" class="button image-upload" value="Browse">
+        </th>
+        <th>
+            <div class="image-preview">
+                <img src="<?php echo $image; ?>">
+            </div>            
+        </th>
+    </tr>    
 </table>
 <?php
 
@@ -232,6 +255,9 @@ function proyecto_save_metas( $idproyecto, $proyecto ){
 		if ( isset( $_POST['proyecto_url'] ) ){
 			update_post_meta( $idproyecto, 'proyecto_url', $_POST['proyecto_url'] );
 		}
+        if ( isset( $_POST['proyecto_image'] ) ){
+            update_post_meta( $idproyecto, 'proyecto_image', $_POST['proyecto_image'] );
+        }
 	}
 }
 

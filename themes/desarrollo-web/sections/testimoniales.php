@@ -1,5 +1,4 @@
-<section id="section-testimoniales" class="[ padding-top-bottom-section ][ relative ]" >
-	<div class="[ bg-dark-opacity-xlight ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
+<section id="section-testimoniales" class="[ bg-gray-light ][ padding-top-bottom-section ][ relative ]" >
 	<div class="container">
 		<h2 class="[ text-center ][ color-primary ]">Testimoniales</h2>
 		<div class="row">
@@ -11,23 +10,20 @@
 				);
 				$testimonial_query = new WP_Query( $testimonial_args );
 				$i = 1;
-				if ( $testimonial_query->have_posts() ) :				
+				if ( $testimonial_query->have_posts() ) : 				
 				while ( $testimonial_query->have_posts() ) : $testimonial_query->the_post();
 			?>
 				<div class="col s12 m4 margin-bottom-sm-and-down">
-					<div class="content-testimonial z-depth-2 text-center [ wow bounce ]" data-wow-delay="<?php echo $i; ?>s">
-						<div class="triangle-right [ wow slideInDown ]"></div>
-						<div class="triangle-left [ wow slideInDown ]"></div>
+					<div class="text-center [ wow fadeIn ]" data-wow-delay="<?php echo $i; ?>s">
 						<div class="content-quote relative">
-							<i class="icon-quote rotate--180 color-primary-xdark"></i>
+							<i class="icon-quote rotate--180 color-primary-light"></i>
 							<?php the_content(); ?>
-							<i class="icon-quote color-primary-xdark"></i>
+							<i class="icon-quote color-primary-light"></i>
 						</div>
 						<small>
 							<span class="uppercase font-alegreya xstrong block color-primary"><?php the_title(); ?></span>
 							<span>proyecto</span>								
 						</small>
-						<div class="triangle-bottom-right [ wow slideInUp ]"></div>
 					</div>
 				</div>
 			<?php 

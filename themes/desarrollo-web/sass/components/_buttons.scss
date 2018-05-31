@@ -315,16 +315,25 @@ button.btn-floating {
 	display: block;
 }
 
+.btn-primary {
+	background-color: $primary-color;
+	border-color: $primary-color;
+	color: $light-color;
+	&:hover {
+		background-color: $primary-color-dark;
+		border-color: $primary-color-dark;
+	}
+}
 .btn-proyect {
 	width: 30px;    
     height: 30px;
-	position: absolute!important;
-    bottom: 5px;
-    right: 5px;
-    background-color: $secondary-color-light;
-    color: #fff;
-    border: 0px!important;
     padding: 0px;
     border-radius: 50%;    
     line-height: 30px;
+}
+
+.buttons-proyect { 
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }

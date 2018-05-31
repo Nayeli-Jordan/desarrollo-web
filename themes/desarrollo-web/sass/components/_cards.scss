@@ -242,10 +242,10 @@
       }
     }
     &:hover {
-      border-color: $secondary-color-light;
-      img { border-color: $secondary-color-light; }
-      h5 { color: $secondary-color-light; }
-      .card-action { background-color: $secondary-color-light; }
+      border-color: $primary-color-light;
+      img { border-color: $primary-color-light; }
+      h5 { color: $primary-color-light; }
+      .card-action { background-color: $primary-color-light; }
     }
   }
 }

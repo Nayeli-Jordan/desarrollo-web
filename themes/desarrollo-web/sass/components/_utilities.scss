@@ -38,6 +38,7 @@
 .no-margin-bottom	 			{ margin-bottom: 0px; }
 
 .margin-top-bottom-small 		{ margin-top: 10px; margin-bottom: 10px; }
+.margin-top-bottom		 		{ margin-top: 15px; margin-bottom: 15px; }
 
 .margin-right-small 			{ margin-right: 10px; }
 .margin-right 					{ margin-right: 15px; }
@@ -118,8 +119,10 @@
 .relative { position: relative; }
 
 .right-0 { right: 0; }
+.right--5 { right: -5px; }
 .left-0 { left: 0; }
 .top-0 { top: 0; }
+.top--20 { top: -20px; }
 .bottom-0 { bottom: 0; }
 
 .rotate--180 { transform: rotate(-180deg); }
@@ -169,7 +172,8 @@ hr.line-xsmall {
 }
 
 // bg
-.bg-gray-light 			{ background-color: #e8e8e8; }
+//.bg-gray-light 			{ background-color: rgba(43, 47, 51, 0.15); }
+.bg-gray-light 			{ background-color: #e9e8e9; }
 .bg-gray 				{ background-color: #d6d6d6; }
 .bg-gray-dark			{ background-color: #2a2f33; }
 .bg-primary-light 		{ background-color: $primary-color-light; }
@@ -346,62 +350,19 @@ hr.line-xsmall {
 	}	
 }
 
-.content-testimonial {
-	position: relative;
-	padding-top: 30px;
-	padding-bottom: 20px;
-	background-color: rgba(255, 255, 255, 0.85);;
-	border-radius: 3px;
-	border-bottom: 2px solid $primary-color;
-	.triangle-left, 
-	.triangle-right,
-	.triangle-bottom-right {
+.content-quote {
+	padding: 15px;
+	p { text-indent: 0.3cm; }
+	i {
+		font-size: 25px;
 		position: absolute;
-	}
-	.triangle-left {
-		border-left: 110px solid $primary-color-dark;
-		border-bottom: 10px solid transparent;
-		border-right: 110px solid transparent;
-		border-top: 10px solid $primary-color-dark;
-		left: 0px;
-		top: 0px;
-	}
-	.triangle-right {
-	    border-left: 110px solid transparent;
-	    border-bottom: 10px solid transparent;
-	    border-right: 110px solid $primary-color-light;
-	    border-top: 10px solid $primary-color-light;
-	    right: 0px;
-	    top: 0px;
-	}
-	.triangle-bottom-right {
-	    border-left: 110px solid transparent;
-		border-bottom: 10px solid $primary-color;
-		border-right: 110px solid $primary-color;
-		border-top: 10px solid transparent;
-	    right: 0px;
-	    bottom: 0px;
-	}
-    .content-quote {
-		padding: 15px;
-    	min-height: 100px;
-    	p { text-indent: 0.6cm; }
-		i {
-			font-size: 35px;
-			position: absolute;
-			bottom: -5px;
-			right: -15px;
-			
-			&.rotate--180 {
-				font-size: 50px;
-				top: -25px;
-				left: -15px;
-				bottom: initial;
-				right: initial;
-			}
-		}    	
-    }
-	small {
-		padding: 15px;
-	}
+		bottom: -5px;
+		right: -5px;			
+		&.rotate--180 {
+			top: -5px;
+			left: -5px;
+			bottom: initial;
+			right: initial;
+		}
+	}    	
 }
