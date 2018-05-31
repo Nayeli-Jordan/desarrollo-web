@@ -1,61 +1,73 @@
-<div class="carousel [ paquetes ]">
-	<div class="opacity-left"></div>
-	<div class="opacity-right"></div>
+<section id="section-paquetes" class=" container [ padding-top-bottom-section ]">
 
 	<?php
-		$paquete_args = array(
-			'post_type' => 'paquete',
-			'posts_per_page' => -1,
+		$seccion_args = array(
+			'post_type' => 'seccion',
+			'posts_per_page' => 1,
 			'order'=> 'ASC',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'posicion',
+					'field'    => 'slug', //term_id, slug
+					'terms'    => 'paquetes',
+					//'operator' => 'NOT IN'
+				),
+			)
 		);
-		$paquete_query = new WP_Query( $paquete_args );
+		$seccion_query = new WP_Query( $seccion_args );
+		if ( $seccion_query->have_posts() ) :
 		$i = 1;
-		if ( $paquete_query->have_posts() ) :				
-		while ( $paquete_query->have_posts() ) : $paquete_query->the_post();
-
-		$custom_fields = get_post_custom();
-		$post_id = get_the_ID();
-		$precio = get_post_meta( $post_id, 'paquete_precio', true );
-		$tiempo = get_post_meta( $post_id, 'paquete_tiempo', true );
+		while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
 	?>
-		<div class="carousel-item <?php if ($i == 1){ ?> active <?php } ?>">
-			<div class="[ card ]">
-				<div class="[ item-locked ]"></div>
-				<div class="triangulo-top-right absolute right-0 [ wow slideInDown ]" data-wow-delay="0.3s"></div>		
-				<div class="triangulo-top-left absolute left-0 [ wow slideInDown ]"></div>
-				<div class="[ card-content ][ padding-top-bottom-xlarge ]">
-					<h3 class="[ color-primary ][ text-center ]"><?php the_title(); ?></h3>
-					<hr class="line-difumined-small">
-					<div class="[ info-paquete ]">
-						<?php the_content(); ?>
-					</div>							
-					<?php if( $precio != "" ) { ?>
-						<hr class="line-difumined-large">
-						<p class="[ text-center ][ color-primary-dark ][ strong ]">	
-							Desde <?php echo $precio; ?> MXN
-						</p>
-					<?php } ?>								
-					<hr class="line-difumined-large">
-					<!-- opciones del paquete -->
-					<?php echo custom_taxonomies_opciones(); ?>
-					<?php if( $tiempo != "" ) { ?>
-						<hr class="line-difumined-large">
-						<small class="block [ text-center ][ color-primary-dark ][ strong ]">	
-							Entrega: <?php echo $tiempo; ?>
-						</small>
-					<?php } ?>
-				</div>
-				<div class="triangulo-bottom-right absolute right-0 bottom-0 [ wow slideInUp ]"></div>
+		<h2 class="[ text-center ][ color-primary ]"><?php the_title(); ?></h2>
+		<div class="row text-center">
+			<div class="col s12 m10 offset-m1 l8 offset-l2 [ margin-bottom ]">
+				<?php the_content(); ?>
 			</div>
 		</div>
-
-	<?php
-		$i ++;				
+	<?php 
+		$i ++;
 		endwhile;
 		wp_reset_postdata();
 		else:
 	?>
-		<p>Falta agregar paquetes</p>	
-	<?php endif; ?>		
+		<p>Falta agregar información</p>	
+	<?php endif; ?>
 
-</div>
+	<!-- carousel paquetes -->
+	<?php include (TEMPLATEPATH . '/sections/paquetes-carousel.php'); ?>
+
+	<div class="[ center ][ margin-top ]">
+		<a class="link-contacto waves-effect waves-light btn" id="contacto" itemprop="actionOption">Cotiza tu proyecto</a>			
+	</div>
+	<?php
+		$seccion_args = array(
+			'post_type' => 'seccion',
+			'posts_per_page' => 1,
+			'order'=> 'ASC',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'posicion',
+					'field'    => 'slug', //term_id, slug
+					'terms'    => 'paquetes2',
+					//'operator' => 'NOT IN'
+				),
+			)
+		);
+		$seccion_query = new WP_Query( $seccion_args );
+		if ( $seccion_query->have_posts() ) :
+		$i = 1;
+		while ( $seccion_query->have_posts() ) : $seccion_query->the_post();
+	?>
+		<div class="row text-center margin-top">
+			<div class="col s12 l10 offset-l1 [ margin-bottom ]">
+				<?php the_content(); ?>
+			</div>
+		</div>		
+	<?php 
+		$i ++;
+		endwhile;
+		wp_reset_postdata();
+		endif; ?>
+
+</section>

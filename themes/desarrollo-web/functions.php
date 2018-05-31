@@ -235,6 +235,70 @@ function proyecto_save_metas( $idproyecto, $proyecto ){
 	}
 }
 
+//miembro
+add_action( 'add_meta_boxes', 'miembro_custom_metabox' );
+
+function miembro_custom_metabox(){
+    add_meta_box( 'miembro_meta', 'Información miembro', 'display_miembro_atributos', 'miembro', 'advanced', 'default');
+}
+
+function display_miembro_atributos( $miembro ){
+    $github = esc_html( get_post_meta( $miembro->ID, 'miembro_github', true ) );
+    $linkedin = esc_html( get_post_meta( $miembro->ID, 'miembro_linkedin', true ) );
+    $behance = esc_html( get_post_meta( $miembro->ID, 'miembro_behance', true ) );
+    $instagram = esc_html( get_post_meta( $miembro->ID, 'miembro_instagram', true ) );
+?>
+
+<table style="width:100%; text-align: left;">
+    <tr>
+        <th style="padding-bottom:10px">
+            <label>GitHub:</label></br>
+            <input style="width:100%" type="text" name="miembro_github" value="<?php echo $github; ?>">
+        </th>
+    </tr>
+    <tr>
+        <th style="padding-bottom:10px">
+            <label>Linkedin:</label></br>
+            <input style="width:100%" type="text" name="miembro_linkedin" value="<?php echo $linkedin; ?>">
+        </th>
+    </tr>
+    <tr>
+        <th style="padding-bottom:10px">
+            <label>Behance:</label></br>
+            <input style="width:100%" type="text" name="miembro_behance" value="<?php echo $behance; ?>">
+        </th>
+    </tr>
+    <tr>
+        <th style="padding-bottom:10px">
+            <label>Instagram:</label></br>
+            <input style="width:100%" type="text" name="miembro_instagram" value="<?php echo $instagram; ?>">
+        </th>
+    </tr>
+</table>
+<?php
+
+}
+
+add_action( 'save_post', 'miembro_save_metas', 10, 2 );
+function miembro_save_metas( $idmiembro, $miembro ){
+    //Comprobamos que es del tipo que nos interesa
+    if ( $miembro->post_type == 'miembro' ){
+    //Guardamos los datos que vienen en el POST
+        if ( isset( $_POST['miembro_github'] ) ){
+            update_post_meta( $idmiembro, 'miembro_github', $_POST['miembro_github'] );
+        }
+        if ( isset( $_POST['miembro_linkedin'] ) ){
+            update_post_meta( $idmiembro, 'miembro_linkedin', $_POST['miembro_linkedin'] );
+        }
+        if ( isset( $_POST['miembro_behance'] ) ){
+            update_post_meta( $idmiembro, 'miembro_behance', $_POST['miembro_behance'] );
+        }
+        if ( isset( $_POST['miembro_instagram'] ) ){
+            update_post_meta( $idmiembro, 'miembro_instagram', $_POST['miembro_instagram'] );
+        }
+    }
+}
+
 
 /**
 * Taxonomía

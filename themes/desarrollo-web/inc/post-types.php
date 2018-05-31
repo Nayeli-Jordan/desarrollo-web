@@ -130,6 +130,37 @@ add_action('init', function(){
 	);
 	register_post_type( 'beneficio', $args );
 
+	// miembro
+	$labels = array(
+		'name'          => 'Miembro',
+		'singular_name' => 'Miembro',
+		'add_new'       => 'Nuevo miembro',
+		'add_new_item'  => 'Nuevo miembro',
+		'edit_item'     => 'Editar miembro',
+		'new_item'      => 'Nuevo miembro',
+		'all_items'     => 'Todo',
+		'view_item'     => 'Ver miembro',
+		'search_items'  => 'Buscar miembro',
+		'not_found'     => 'No hay miembro.',
+		'menu_name'     => 'Miembro'
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'miembro' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 6,
+		'supports'           => array( 'title', 'editor', 'thumbnail' )
+	);
+	register_post_type( 'miembro', $args );
+
 	// Proyecto
 	$labels = array(
 		'name'          => 'Proyectos',
@@ -188,7 +219,7 @@ add_action('init', function(){
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => 6,
-		'supports'           => array( 'title', 'editor' )
+		'supports'           => array( 'title', 'editor', 'thumbnail' )
 	);
 	register_post_type( 'testimonial', $args );
 

@@ -22,6 +22,7 @@ var $=jQuery.noConflict();
 				dist: -30,
 				indicators: true
 			});
+			$('.slider').slider();
 			$('.modal').modal();
 			$('.materialboxed').materialbox();
 			// autoplay();   

@@ -12,7 +12,7 @@ a {
 p { margin: 0px; }
 p + p { margin-top: 5px; }
 
-.frase p {
+.frase p, h2.frase {
   font-family: 'Alegreya Sans', sans-serif;
   font-size: 26px;
   color: #fff;
@@ -63,7 +63,7 @@ h6 { font-size: $h6-fontsize; line-height: 110%; margin: 0;}
 
 // Text Styles
 em { font-style: italic; }
-strong, .strong { font-weight: 500; }
+
 small { 
   font-size: 10px;
   line-height: 12px; 
@@ -77,7 +77,10 @@ small p {
 
 .light { font-weight: 300; }
 .thin { font-weight: 200; }
+strong, .strong { font-weight: 500; }
+.xstrong { font-weight: 700; }
 
+.uppercase { text-transform: uppercase; }
 
 .flow-text{
   font-weight: 300;

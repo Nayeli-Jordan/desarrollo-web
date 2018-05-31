@@ -56,7 +56,7 @@
 .btn,
 .btn-floating {
 	&:focus {
-		background-color: $primary-color;
+		background-color: $secondary-color;
 		color:#fff; 
 	}
 }
@@ -64,9 +64,9 @@
 // Raised Button
 .btn {
 	text-decoration: none;
-	color: $primary-color;
+	color: $secondary-color;
 	background-color: transparent;
-	border: 1px solid $primary-color;
+	border: 1px solid $secondary-color;
 	text-align: center;
 	letter-spacing: .5px;
 	@extend .z-depth-1;
@@ -74,8 +74,8 @@
 	cursor: pointer;
 
 	&:hover {
-		border: 1px solid $primary-color-light;
-		background-color: $primary-color-light;
+		border: 1px solid $secondary-color-light;
+		background-color: $secondary-color-light;
 		color: #fff;
 		@extend .z-depth-1-half;
 	}
@@ -84,8 +84,8 @@
 		border: 1px solid #fff;
 		background-color: rgba(0, 0, 0, 0.5);
 		&:hover, &:focus {
-			border: 1px solid $primary-color-light;
-			background-color: $primary-color-light;
+			border: 1px solid $secondary-color-light;
+			background-color: $secondary-color-light;
 			color: #fff;
 		}
 	}
@@ -278,7 +278,7 @@ button.btn-floating {
 	}
 
 	&:focus {
-		background-color: $primary-color;
+		background-color: $secondary-color;
 	}
 
 	&.disabled {
@@ -313,4 +313,18 @@ button.btn-floating {
 // Block button
 .btn-block {
 	display: block;
+}
+
+.btn-proyect {
+	width: 30px;    
+    height: 30px;
+	position: absolute!important;
+    bottom: 5px;
+    right: 5px;
+    background-color: $secondary-color-light;
+    color: #fff;
+    border: 0px!important;
+    padding: 0px;
+    border-radius: 50%;    
+    line-height: 30px;
 }

@@ -35,7 +35,11 @@
 // 1. Colors
 // ==========================================================================
 
-//Blue
+//Violet
+// Originales
+//#009AAC
+//#007785
+//#10616A
 $primary-color-light: #009AAC;
 $primary-color: #007785;
 $primary-color-dark: #10616A;
@@ -44,11 +48,16 @@ $primary-color-dark: #10616A;
 $secondary-color-light: #639511;
 $secondary-color: #4A7700;
 $secondary-color-dark: #3D5F04;
+// $secondary-color-light: #915792;
+// $secondary-color: #a15fa2;
+// $secondary-color-dark: #874688;
 
 //green
 $dark-color-light: #3A3A3A;
 $dark-color: #2A2A2A;
 $dark-color-dark: #212121;
+
+$light-color: #fff;
 
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;

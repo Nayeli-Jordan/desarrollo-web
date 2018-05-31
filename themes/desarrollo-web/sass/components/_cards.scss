@@ -142,7 +142,7 @@
 
     p {
       margin: 0;
-      color: inherit;
+      //color: inherit;
     }
     .card-title {
       display: block;
@@ -204,5 +204,48 @@
   ul.points-list { 
     min-height: 180px;
     //min-height: 113px;
+  }
+}
+
+
+#section-equipo {
+  .card {
+    text-align: center;
+    border-top: 3px solid $primary-color-light;
+    img {
+      max-width: 100px;
+      border: 3px solid $primary-color-light;
+    }
+    h5 {
+      font-size: 18px;
+      font-weight: bold;
+      color: $primary-color-light;
+    }
+    .card-action {
+      padding: 10px;
+      background-color: $primary-color-light;
+      a {
+        color:  #fff;
+        width: 30px;
+        margin-left: 1px; margin-right: 1px;
+        margin-top: 1px; margin-bottom: 1px;
+        line-height: 30px;
+        display:  inline-block;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        &:hover { 
+          background-color: rgba(0, 0, 0, 0.3); 
+        }
+        i {
+          font-size: 18px;
+        }
+      }
+    }
+    &:hover {
+      border-color: $secondary-color-light;
+      img { border-color: $secondary-color-light; }
+      h5 { color: $secondary-color-light; }
+      .card-action { background-color: $secondary-color-light; }
+    }
   }
 }

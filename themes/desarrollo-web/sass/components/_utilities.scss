@@ -19,6 +19,8 @@
 
 //box
 
+.margin-auto 					{ margin: auto; }
+
 .margin-top-small 				{ margin-top: 10px; }
 .margin-top 					{ margin-top: 15px; }
 .margin-top-large 				{ margin-top: 20px; }
@@ -34,6 +36,8 @@
 .margin-bottom-xlarge 			{ margin-bottom: 25px; }
 .no-margin-bottom	 			{ margin-bottom: 0px; }
 
+.margin-top-bottom-small 		{ margin-top: 10px; margin-bottom: 10px; }
+
 .margin-right-small 			{ margin-right: 10px; }
 .margin-right 					{ margin-right: 15px; }
 .margin-right-large 			{ margin-right: 20px; }
@@ -47,6 +51,8 @@
 @media #{$small-and-down}{
 	.margin-top-large-sm-and-down		{ margin-top: 20px; }
 }
+
+.no-padding 					{ padding: 0px; }
 
 .padding-top-small 				{ padding-top: 10px; }
 .padding-top 					{ padding-top: 15px; }
@@ -97,11 +103,13 @@
 //size
 .width-100p { width: 100%; }
 
+.max-width-120 { max-width: 120px; }
+
 .height-150 { height: 150px; }
 .height-200 { height: 200px; }
 .height-250 { height: 250px; }
 
-.height-testimonial { min-height: 90px; }
+.min-height-65 { min-height: 65px; }
 
 //Position
 .absolute { position: absolute; }
@@ -121,6 +129,8 @@
 @media #{$large-and-up}{
 	.hide-l-and-up { display: none; } 
 }
+
+.overflow-hide { overflow: hidden;}
 
 //align
 .text-center { text-align: center; } 
@@ -157,6 +167,7 @@ hr.line-xsmall {
 // bg
 .bg-gray-light 			{ background-color: #e8e8e8; }
 .bg-gray 				{ background-color: #d6d6d6; }
+.bg-gray-dark			{ background-color: #2a2f33; }
 .bg-primary-light 		{ background-color: $primary-color-light; }
 .bg-primary 			{ background-color: $primary-color; }
 .bg-primary-dark		{ background-color: $primary-color-dark; }
@@ -269,6 +280,8 @@ hr.line-xsmall {
 		border-bottom: 10px solid $primary-color;
 		border-right: 110px solid $primary-color;
 	}
+	.color-secondary { color: $primary-color; }
+	.color-secondary-dark { color: $primary-color-dark; }
 }
 
 .servicios {  
@@ -307,4 +320,50 @@ hr.line-xsmall {
 	}
 }
 
+//Miembros
+.content-miembro {
+	position: relative;
+	margin: auto;
+	//height: 120px;
+	width: 100%;
+	padding-bottom: calc(100%);
+	overflow: hidden;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	.content-redes {
+		position: absolute;
+	    top: 0px; bottom: 0px;
+	    left: 0px; right: 0px;
+	    width: 100%;
+	    height: calc(100%);   
+	    background-color: rgba(41, 41, 41, 0.6);   
+	    opacity: 0.6; 
+		-webkit-transition: all .3s ease;
+		-moz-transition: all .3s ease;
+		-o-transition: all .3s ease;
+		transition: all .3s ease;
+		&:hover {
+			opacity: 1;
+		}
+	}	
+}
 
+.content-testimonial {
+	position: relative;
+	background-color: $light-color;
+	border-radius: 15px;
+    border-right: 2px solid $primary-color-light;
+    border-bottom: 3px solid $primary-color;
+    padding: 15px;
+    .triangle {
+		width: 0; 
+		height: 0; 
+		position: absolute;
+		right: 10px;
+		bottom: -17px;
+		border-top: 17px solid $primary-color;
+		border-left: 16px solid transparent;
+		border-right: 5px solid transparent; 
+    }
+}
