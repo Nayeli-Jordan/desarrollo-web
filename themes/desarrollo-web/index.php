@@ -21,10 +21,11 @@
 	<!-- Proyectos -->
 	<?php include (TEMPLATEPATH . '/sections/proyectos.php'); ?>
 
-	<!-- Testimoniales -->
-	<?php //include (TEMPLATEPATH . '/sections/testimoniales.php'); ?>
-
-	<!-- Testimoniales -->
+	<!-- Beneficios -->
 	<?php include (TEMPLATEPATH . '/sections/beneficios.php'); ?>
+	
+	<!-- Testimoniales -->
+	<?php include (TEMPLATEPATH . '/sections/testimoniales.php'); ?>
 
+	
 <?php get_footer() ?>

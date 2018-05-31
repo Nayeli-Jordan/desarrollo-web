@@ -1,7 +1,7 @@
-<section id="section-testimoniales" class="[ relative ][ bg-image ]" style="background-image: url(<?php echo THEMEPATH ?>images/contacto.png);">
-	<div class="[ bg-dark-opacity-minor ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
-	<div class="container [ padding-top-bottom-section ]">
-		<h2 class="[ text-center ][ color-light ] frase">Testimoniales</h2>
+<section id="section-testimoniales" class="[ padding-top-bottom-section ][ relative ]" >
+	<div class="[ bg-dark-opacity-xlight ][ absolute top-0 bottom-0 left-0 right-0 ]"></div>
+	<div class="container">
+		<h2 class="[ text-center ][ color-primary ]">Testimoniales</h2>
 		<div class="row">
 			<?php
 				$testimonial_args = array(
@@ -14,20 +14,20 @@
 				if ( $testimonial_query->have_posts() ) :				
 				while ( $testimonial_query->have_posts() ) : $testimonial_query->the_post();
 			?>
-				<div class="col s12 m4">
-					<div class="content-testimonial z-depth-2">
-						<div class="large text-center min-height-65"><?php the_content(); ?></div>
-						<hr class="line-difumined-large margin-top-bottom-small">
-						<div class="row">
-							<div class="col s5 m4 l3 no-padding">
-								<img class="responsive-img circle" src="<?php the_post_thumbnail_url('medium'); ?>" alt="imagen cliente">	
-							</div>
-							<div class="col s7 m8 l9">
-								<p class="uppercase font-alegreya xstrong color-primary"><?php the_title(); ?></p>
-								<p>proyecto</p>							
-							</div>							
+				<div class="col s12 m4 margin-bottom-sm-and-down">
+					<div class="content-testimonial z-depth-2 text-center [ wow bounce ]" data-wow-delay="<?php echo $i; ?>s">
+						<div class="triangle-right [ wow slideInDown ]"></div>
+						<div class="triangle-left [ wow slideInDown ]"></div>
+						<div class="content-quote relative">
+							<i class="icon-quote rotate--180 color-primary-xdark"></i>
+							<?php the_content(); ?>
+							<i class="icon-quote color-primary-xdark"></i>
 						</div>
-						<div class="triangle"></div>
+						<small>
+							<span class="uppercase font-alegreya xstrong block color-primary"><?php the_title(); ?></span>
+							<span>proyecto</span>								
+						</small>
+						<div class="triangle-bottom-right [ wow slideInUp ]"></div>
 					</div>
 				</div>
 			<?php 
@@ -38,6 +38,6 @@
 			?>
 				<p>Falta agregar testimoniales</p>	
 			<?php endif; ?>	
-		</div>
+		</div>	
 	</div>
 </section>

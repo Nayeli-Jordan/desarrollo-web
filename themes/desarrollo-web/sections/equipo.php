@@ -54,7 +54,7 @@
 			$behance = get_post_meta( $post_id, 'miembro_behance', true );
 			$instagram = get_post_meta( $post_id, 'miembro_instagram', true );			
 		?>
-			<div class="col s12 sm6 m4 l3 margin-bottom-small">
+			<div class="col s12 sm6 m4 l3 margin-bottom">
 				<div class="card [ wow fadeIn ]">
 					<div class="card-content">
 						<img class="responsive-img circle margin-bottom-small" src="<?php the_post_thumbnail_url('medium'); ?>">
